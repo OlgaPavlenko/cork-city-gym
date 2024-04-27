@@ -749,12 +749,10 @@ input::placeholder {
 }
 
 /* ===================team=================================*/
-.team {
-  margin-bottom: 90px;
-}
 .team__list {
   display: flex;
-  justify-content: space-between;
+  flex-wrap: wrap;
+  justify-content: center;
   column-gap: 2rem;
 
   @media screen and (min-width: 350px) and (max-width: 767.98px) {
@@ -764,17 +762,17 @@ input::placeholder {
   }
 }
 
-.team__list-item {
+.team__item {
   text-align: center;
 }
 
-.team__list__member-social {
+.item__social {
   display: flex;
   justify-content: center;
   margin-bottom: 24px;
 }
 
-.team__list__member__social-link {
+.item__link {
   display: flex;
   padding: 0;
   margin: 0;
@@ -795,12 +793,19 @@ input::placeholder {
   }
 }
 
-.team__list__member__social-img {
+.item__img {
   fill: currentColor;
 }
 
+.card__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
 /*================flip====================*/
-.scene {
+.team__scene {
   width: 300px;
   height: 500px;
   border: 1px solid var(--main-color);
@@ -809,7 +814,7 @@ input::placeholder {
   perspective: 600px;
 }
 
-.card {
+.team__card {
   position: relative;
   width: 100%;
   height: 100%;
@@ -819,8 +824,8 @@ input::placeholder {
   transition: transform 1s;
 }
 
-.scene:hover .card,
-.scene:focus .card {
+.team__scene:hover .team__card,
+.team__scene:focus .team__card {
   transform: translateX(-100%) rotateY(-180deg);
 }
 
@@ -839,28 +844,6 @@ input::placeholder {
 .card__face--front {
   object-fit: cover;
   border-radius: 10px;
-}
-
-#person1 {
-  background-image: url("../images/teachers/400x600.jpg");
-  background-position: 50% 40%;
-}
-
-#person2 {
-  background-image: url("../images/teachers/4cbe4f1272602e7f44495a7bbf88c47d.jpg");
-  background-position: center;
-}
-
-#person3 {
-  background-image: url("../images/teachers/sprt.jpg");
-  background-position: top;
-}
-
-#person4 {
-  background-image: url("../images/teachers/trener-zarplata.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: 50% 40%;
 }
 
 .card__face--back {
