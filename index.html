@@ -188,14 +188,21 @@
 				</p>
 				<div class="contacts__inner">
 					<form action="#" class="contacts__form" id="form">
-						<label class="contacts__label" for="name">Your Name</label>
-						<input class="contacts__input required" id="name" type="text" name="name" placeholder="&Nopf;ame"><br>
-						<label class="contacts__label" for="phone">Phone Number</label>
-						<input class="contacts__input required" id="phone" type="text" name="phone" placeholder="&phone;"><br>
-						<label class="contacts__label" for="email">Email</label>
-						<input class="contacts__input required" id="email" type="email" name="email" placeholder="&commat;"><br>
+						<fieldset>
+							<label class="contacts__label" for="name">Your Name*</label>
+							<input class="contacts__input required" id="name" type="text" name="name" placeholder="&Nopf;ame" data-placeholder="&Nopf;ame"><br>
+						</fieldset>
+						<fieldset>
+							<label class="contacts__label" for="phone">Phone Number*</label>
+							<input class="contacts__input required" id="phone" type="text" name="phone" placeholder="&phone;" data-placeholder="&phone;"><br>
+						</fieldset>
+						<fieldset>
+							<label class="contacts__label" for="email">Email*</label>
+							<input class="contacts__input required" id="email" type="text" name="email" placeholder="&commat;" data-placeholder="&commat;"><br>
+						</fieldset>
 						<label class="contacts__label" for="massege">Your Massege</label>
-						<textarea class="contacts__input" id="massege" rows="4" name="massege" maxlength="250"></textarea>
+						<textarea class="contacts__msg" id="massege" rows="4" name="massege" maxlength="250"></textarea>
+						<p>* required fields</p>
 						<button class="contacts__btn btn" type="submit">Send</button>
 					</form>
 					<div class="contacts__image">

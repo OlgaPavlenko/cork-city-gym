@@ -25,7 +25,7 @@ body {
 body {
 	font-family: 'Outfit', sans-serif;
 	color: #fff;
-	font-size: 1rem;
+	font-size: 1.25rem;
 	background-color: #000;
 	line-height: 1.5;
 }
@@ -62,7 +62,6 @@ textarea {
 input:focus-visible, textarea:focus-visible {
 	outline: 1px solid #fff;
 	border: none;
-	box-shadow: 2px 2px 5px #cacaca;
 }
 button {
 	cursor: pointer;
@@ -93,7 +92,11 @@ h6 {
 section {
 	padding-top: 120px;
 }
-
+fieldset {
+	position: relative;
+	border: none;
+	height: 120px;
+}
 /* ============common elements============================= */
 .container {
 	max-width: 1340px;
@@ -121,10 +124,12 @@ section {
 	border: 1px solid var(--main-color);
 	transition: 0.5s;
 }
-
-.btn:hover {
-	background-color: inherit;
-	color: #fff;
+@media (hover: hover) {
+	/* when hover is supported */
+	.btn:hover {
+		background-color: inherit;
+		color: #fff;
+	}
 }
 
 .title {
@@ -171,7 +176,9 @@ section {
 	line-height: 0.8;
 	white-space: nowrap;
 }
-
+.header-contact a:hover {
+	text-decoration: underline;
+}
 .header__contact {
 	padding-left: 15px;
 	border-left: 1px solid var(--main-color);
@@ -480,9 +487,6 @@ section {
 	}
 }
 
-/* ==========about us section============================ */
-.mission {}
-
 /* ==========classes section============================ */
 .classes {
 	background: rgb(2, 2, 2);
@@ -663,14 +667,18 @@ section {
 	flex: 1 1 50%;
 	padding: 0 15px;
 }
-
+.contacts__form > p {
+	color: var(--main-color);
+	font-size: 1rem;
+	font-style: italic;
+	margin-bottom: 15px;
+}
 .contacts__label {
 	display: block;
 	margin-bottom: 0.5rem;
 }
 
-.contacts__input {
-	margin-bottom: 1rem;
+.contacts__input, .contacts__msg {
 	border: var(--border);
 	border-radius: 10px;
 	width: 70%;
@@ -683,7 +691,6 @@ section {
 		width: 100%;
 	}
 }
-
 input::placeholder {
 	color: var(--main-color);
 	opacity: 0.5;
@@ -731,4 +738,12 @@ input::placeholder {
 	@media only screen and (max-width: 767.98px) {
 		filter: grayscale(0);
 	}
+}
+.form-error {
+	color: red;
+	font-size: 1rem;
+	font-style: italic;
+}
+.error{
+	border-color: red;
 }
