@@ -22,11 +22,11 @@ body {
 }
 
 body {
-  font-family: "Outfit", sans-serif;
-  color: #fff;
-  font-size: 1rem;
-  background-color: #000;
-  line-height: 1.5;
+	font-family: 'Outfit', sans-serif;
+	color: #fff;
+	font-size: 1.25rem;
+	background-color: #000;
+	line-height: 1.5;
 }
 
 body.lock {
@@ -57,11 +57,10 @@ textarea {
   font-size: inherit;
   line-height: inherit;
 }
-input:focus-visible,
-textarea:focus-visible {
-  outline: 1px solid #fff;
-  border: none;
-  box-shadow: 2px 2px 5px #cacaca;
+
+input:focus-visible, textarea:focus-visible {
+	outline: 1px solid #fff;
+	border: none;
 }
 button {
   cursor: pointer;
@@ -92,7 +91,11 @@ h6 {
 section {
   padding-top: 120px;
 }
-
+fieldset {
+	position: relative;
+	border: none;
+	height: 120px;
+}
 /* ============common elements============================= */
 .container {
   max-width: 1340px;
@@ -121,11 +124,12 @@ section {
   transition: 0.5s;
 }
 
-.btn:hover {
-  background-color: inherit;
-  color: #fff;
-}
-
+@media (hover: hover) {
+	/* when hover is supported */
+	.btn:hover {
+		background-color: inherit;
+		color: #fff;
+	}
 .title {
   color: var(--main-color);
   text-transform: capitalize;
@@ -170,7 +174,9 @@ section {
   line-height: 0.8;
   white-space: nowrap;
 }
-
+.header-contact a:hover {
+	text-decoration: underline;
+}
 .header__contact {
   padding-left: 15px;
   border-left: 1px solid var(--main-color);
@@ -479,10 +485,6 @@ section {
   }
 }
 
-/* ==========about us section============================ */
-.mission {
-}
-
 /* ==========classes section============================ */
 .classes {
   background: rgb(2, 2, 2);
@@ -673,27 +675,30 @@ section {
   flex: 1 1 50%;
   padding: 0 15px;
 }
-
+.contacts__form > p {
+	color: var(--main-color);
+	font-size: 1rem;
+	font-style: italic;
+	margin-bottom: 15px;
+}
 .contacts__label {
   display: block;
   margin-bottom: 0.5rem;
 }
 
-.contacts__input {
-  margin-bottom: 1rem;
-  border: var(--border);
-  border-radius: 10px;
-  width: 70%;
-  background-color: transparent;
-  padding: 0.5em;
-  color: inherit;
-  font-size: 1.25rem;
 
+.contacts__input, .contacts__msg {
+	border: var(--border);
+	border-radius: 10px;
+	width: 70%;
+	background-color: transparent;
+	padding: 0.5em;
+	color: inherit;
+	font-size: 1.25rem;
   @media only screen and (max-width: 991.98px) {
     width: 100%;
   }
 }
-
 input::placeholder {
   color: var(--main-color);
   opacity: 0.5;
@@ -734,18 +739,27 @@ input::placeholder {
   );
 }
 .contacts__image img {
-  display: block;
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  object-fit: cover;
-  filter: grayscale(0.9);
 
-  @media only screen and (max-width: 767.98px) {
-    filter: grayscale(0);
-  }
+	display: block;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	object-fit: cover;
+	filter: grayscale(0.9);
+	
+	@media only screen and (max-width: 767.98px) {
+		filter: grayscale(0);
+	}
+}
+.form-error {
+	color: red;
+	font-size: 1rem;
+	font-style: italic;
+}
+.error{
+	border-color: red;
 }
 
 /* ===================team=================================*/

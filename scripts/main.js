@@ -15,47 +15,65 @@ window.onload = () => {
 			});
 		};
 	})()
+	//============= form ========================
+	const form = document.getElementById('form');
+
+	// add and remove placeholder
+	form.addEventListener('focusin',(e) => {
+		if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') {
+			e.target.placeholder = '';
+		}
+	})
+	form.addEventListener('focusout',(e) => {
+		if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') {
+			e.target.placeholder = e.target.dataset.placeholder
+		}
+	})
 	//============= validation form ========================
-	// const btnSubmit = document.querySelector('.contacts__btn');
-	// const form = document.getElementById('form');
-	// const name = document.getElementById('name');
-	// const phone = document.getElementById('phone');
-	// const email = document.getElementById('email');
 
-	// form.addEventListener('submit', (e) => {
-	// 	e.preventDefault();
-	// 	const requireFields = document.querySelectorAll('.required');
+	form.addEventListener('submit', (e) => {
+		e.preventDefault();
+		const requireFields = document.querySelectorAll('.required');
+		
+		let error = 0;
+		for(let i=0; i < requireFields.length; i++) {
+			let input = requireFields[i];
+			removeErrorMassege(input);
+			if(input.value == '') {
+				addErrorMassege(input);
+				error++;
+			} else {
+				if(input.id == 'email') {
+					if(emailValidation(input)) {
+						addErrorMassege(input, 'Input valid email');
+						error++;
+					}
+				} 
+			}
+		}
+		if(!error) {
+			formSubmit();
+		}
+		return error;
+	})
 
-	// 	let error = 0;
-	// 	for(let i=0; i<requireFields.length; i++) {
-	// 		let input = requireFields[i];
-	// 		removeErrorMassege(input);
-			
-	// 		if(input.id == 'email') {
-	// 			if(emailValidation(input)) {
-	// 				addErrorMassege(input);
-	// 				error++;
-	// 			}
-	// 		} else {
-	// 			if(input.value == '') {
-	// 				addErrorMassege(input);
-	// 				error++;
-	// 			}
-	// 		}
-	// 	}
-	// 	if(error) alert('Fill required fields')
-
-	// })
-	// function addErrorMassege(input) {
-	// 	input.classList.add('error');
-	// }
-	// function removeErrorMassege(input) {
-	// 	input.classList.remove('error');
-	// }
-	// function emailValidation(input) {
-	// 	return !/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,8})+$/.test(input.value);
-	// }
-
+	function addErrorMassege(input, massege='Fill out required fields') {
+		input.classList.add('error');
+		input.parentElement.insertAdjacentHTML('beforeend', `<p class="form-error">${massege}</p>`)
+	}
+	function removeErrorMassege(input) {
+		input.classList.remove('error');
+		if(input.parentElement.querySelector('.form-error')) {
+			input.parentElement.removeChild(input.parentElement.querySelector('.form-error'))
+		}
+	}
+	function emailValidation(input) {
+		return !/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,8})+$/.test(input.value);
+	}
+	async function formSubmit() {
+		form.reset()
+		console.log('form submit')
+	}
 	// ======================init swiper=================
 	const swiperThumb = new Swiper('.classes__slider-thumbs', {
 		// Optional parameters
