@@ -396,35 +396,37 @@
             </div>
         </section>
 
-        <section class="contacts" id="contact">
-            <div class="container">
-                <h2 class="contacts__title title">/// Contact Us</h2>
-                <p class="contacts__text">One of the staff at the gym will contact you by telephone or email to discuss
-                    their application.
-                </p>
-                <div class="contacts__inner">
-                    <form action="#" class="contacts__form" id="form">
-                        <label class="contacts__label" for="name">Your Name</label>
-                        <input class="contacts__input required" id="name" type="text" name="name"
-                            placeholder="&Nopf;ame"><br>
-                        <label class="contacts__label" for="phone">Phone Number</label>
-                        <input class="contacts__input required" id="phone" type="text" name="phone"
-                            placeholder="&phone;"><br>
-                        <label class="contacts__label" for="email">Email</label>
-                        <input class="contacts__input required" id="email" type="email" name="email"
-                            placeholder="&commat;"><br>
-                        <label class="contacts__label" for="massege">Your Massege</label>
-                        <textarea class="contacts__input" id="massege" rows="4" name="massege"
-                            maxlength="250"></textarea>
-                        <button class="contacts__btn btn" type="submit">Send</button>
-                    </form>
-                    <div class="contacts__image">
-                        <img src="images/contacts.jpg" alt="Menbers photo">
-                    </div>
-                </div>
-            </div>
-        </section>
-
+				<section class="contacts" id="contact">
+					<div class="container">
+						<h2 class="contacts__title title">/// Contact Us</h2>
+						<p class="contacts__text">One of the staff at the gym will  contact you by telephone or email to discuss their application.
+						</p>
+						<div class="contacts__inner">
+							<form action="#" class="contacts__form" id="form">
+								<fieldset>
+									<label class="contacts__label" for="name">Your Name*</label>
+									<input class="contacts__input required" id="name" type="text" name="name" placeholder="&Nopf;ame"  data-placeholder="&Nopf;ame"><br>
+								</fieldset>
+								<fieldset>
+									<label class="contacts__label" for="phone">Phone Number*</label>
+									<input class="contacts__input required" id="phone" type="text" name="phone" placeholder="&phone;"  data-placeholder="&phone;"><br>
+								</fieldset>
+								<fieldset>
+									<label class="contacts__label" for="email">Email*</label>
+									<input class="contacts__input required" id="email" type="text" name="email" placeholder="&commat;"  data-placeholder="&commat;"><br>
+								</fieldset>
+								<label class="contacts__label" for="massege">Your Massege</label>
+								<textarea class="contacts__msg" id="massege" rows="4" name="massege" maxlength="250"></textarea>
+								<p>* required fields</p>
+								<button class="contacts__btn btn" type="submit">Send</button>
+							</form>
+							<div class="contacts__image">
+								<img src="images/contacts.jpg" alt="Menbers photo">
+							</div>
+						</div>
+					</div>
+				</section>
+		
     </main>
     <script src="scripts/main.js"></script>
 </body>
