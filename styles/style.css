@@ -4,7 +4,6 @@
 :root {
   --main-color: #ffed00;
   --border: 1px solid var(--main-color);
-  --app-height: 100%;
 }
 
 /* ========== reset default styles================ */
@@ -100,6 +99,12 @@ fieldset {
 address {
 	font-style: normal;
 }
+svg path {
+	stroke:inherit;
+	stroke-width:inherit;
+	fill:inherit;
+	}
+
 /* ============common elements============================= */
 .container {
   max-width: 1340px;
@@ -902,8 +907,14 @@ input::placeholder {
 	display: block;
 }
 .footer__address {
+	margin-bottom: 10px;
 }
 .footer__social {
+	display: flex;
+	gap: 35px;
+}
+.footer__social svg:hover{
+	--color1: var(--main-color);
 }
 .footer__logo {
 	max-width: 150px;
