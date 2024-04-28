@@ -396,36 +396,81 @@
             </div>
         </section>
 
-        <section class="contacts" id="contact">
-            <div class="container">
-                <h2 class="contacts__title title">/// Contact Us</h2>
-                <p class="contacts__text">One of the staff at the gym will contact you by telephone or email to discuss
-                    their application.
-                </p>
-                <div class="contacts__inner">
-                    <form action="#" class="contacts__form" id="form">
-                        <label class="contacts__label" for="name">Your Name</label>
-                        <input class="contacts__input required" id="name" type="text" name="name"
-                            placeholder="&Nopf;ame"><br>
-                        <label class="contacts__label" for="phone">Phone Number</label>
-                        <input class="contacts__input required" id="phone" type="text" name="phone"
-                            placeholder="&phone;"><br>
-                        <label class="contacts__label" for="email">Email</label>
-                        <input class="contacts__input required" id="email" type="email" name="email"
-                            placeholder="&commat;"><br>
-                        <label class="contacts__label" for="massege">Your Massege</label>
-                        <textarea class="contacts__input" id="massege" rows="4" name="massege"
-                            maxlength="250"></textarea>
-                        <button class="contacts__btn btn" type="submit">Send</button>
-                    </form>
-                    <div class="contacts__image">
-                        <img src="images/contacts.jpg" alt="Menbers photo">
-                    </div>
-                </div>
-            </div>
-        </section>
-
+				<section class="contacts" id="contact">
+					<div class="container">
+						<h2 class="contacts__title title">/// Contact Us</h2>
+						<p class="contacts__text">One of the staff at the gym will  contact you by telephone or email to discuss their application.
+						</p>
+						<div class="contacts__inner">
+							<form action="#" class="contacts__form" id="form">
+								<fieldset>
+									<label class="contacts__label" for="name">Your Name*</label>
+									<input class="contacts__input required" id="name" type="text" name="name" placeholder="&Nopf;ame"  data-placeholder="&Nopf;ame"><br>
+								</fieldset>
+								<fieldset>
+									<label class="contacts__label" for="phone">Phone Number*</label>
+									<input class="contacts__input required" id="phone" type="text" name="phone" placeholder="&phone;"  data-placeholder="&phone;"><br>
+								</fieldset>
+								<fieldset>
+									<label class="contacts__label" for="email">Email*</label>
+									<input class="contacts__input required" id="email" type="text" name="email" placeholder="&commat;"  data-placeholder="&commat;"><br>
+								</fieldset>
+								<label class="contacts__label" for="massege">Your Massege</label>
+								<textarea class="contacts__msg" id="massege" rows="4" name="massege" maxlength="250"></textarea>
+								<p>* required fields</p>
+								<button class="contacts__btn btn" type="submit">Send</button>
+							</form>
+							<div class="contacts__image">
+								<img src="images/contacts.jpg" alt="Menbers photo">
+							</div>
+						</div>
+					</div>
+				</section>
+		
     </main>
+		<footer class="footer">
+			<div class="container">
+				<div class="footer__inner">
+					<div class="footer__info">
+						<div class="footer__address">
+							<address>Cork Inner City</address>
+							<a href="tel:0877303030">087 730 30 30</a>
+							<a href="mailto:corkinner-fitness@gmail.com">corkinner-fitness@gmail.com</a>
+						</div>
+						<ul class="footer__social">
+								<li><a href="#">                                        <svg class="item__img" width="20" height="20">
+									<use href="images/social/symbol-defs.svg#icon-facebook"></use>
+								</svg>
+								</a></li>
+							<li><a href="#">
+								<svg class="item__img" width="20" height="20">
+									<use href="images/social/symbol-defs.svg#icon-instagram"></use>
+							</svg>
+							</a></li>
+							<li><a href="#">
+								<svg class="item__img" width="20" height="20">
+									<use href="images/social/symbol-defs.svg#icon-twitter"></use>
+							</svg>
+							</a></li>
+						</ul>
+					</div>
+					<div class="footer__logo logo">
+						<img src="images/logo3.png" alt="logo">
+					</div>
+					<div class="footer__schedule">
+						<p>Opening Hours:</p>
+						<div class="footer__schedule-time">
+							<p>Mon-Fri:&nbsp;<span>6 am</span><span>-</span><span>10 pm</span></p>
+							<p>Sat, Sun & BH:&nbsp;<span>8 am</span><span>-</span><span>9 pm</span></p>
+					</div>
+				</div>
+			</div>
+			<div class="footer__copy">
+				<p>skillnet project</p>
+				<p>WEB developers team &copy; copyright 2024</p>
+			</div>
+		</footer>
+	
     <script src="scripts/main.js"></script>
 </body>
 
