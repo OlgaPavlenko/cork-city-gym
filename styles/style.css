@@ -912,6 +912,9 @@ input::placeholder {
 .footer__social {
 	display: flex;
 	gap: 35px;
+	@media screen and (max-width: 767.98px){
+	justify-content: center;
+	}
 }
 .footer__social svg:hover{
 	--color1: var(--main-color);
