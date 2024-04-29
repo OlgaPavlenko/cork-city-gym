@@ -20,12 +20,12 @@ window.onload = () => {
 
 	// add and remove placeholder
 	form.addEventListener('focusin',(e) => {
-		if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') {
+		if (e.target.tagName === 'INPUT') {
 			e.target.placeholder = '';
 		}
 	})
 	form.addEventListener('focusout',(e) => {
-		if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') {
+		if (e.target.tagName === 'INPUT') {
 			e.target.placeholder = e.target.dataset.placeholder
 		}
 	})
@@ -71,8 +71,11 @@ window.onload = () => {
 		return !/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,8})+$/.test(input.value);
 	}
 	async function formSubmit() {
-		form.reset()
-		console.log('form submit')
+		form.reset();
+		form.insertAdjacentHTML('beforeend', `<div class="form-submit"><span>Yuor massege is submited</span></div>`);
+		setTimeout(() => {
+			form.removeChild(form.querySelector('.form-submit'))
+		}, 3000)
 	}
 	// ======================init swiper=================
 	const swiperThumb = new Swiper('.classes__slider-thumbs', {

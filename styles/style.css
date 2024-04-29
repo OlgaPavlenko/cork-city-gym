@@ -99,11 +99,6 @@ fieldset {
 address {
 	font-style: normal;
 }
-svg path {
-	stroke:inherit;
-	stroke-width:inherit;
-	fill:inherit;
-	}
 
 /* ============common elements============================= */
 .container {
@@ -494,7 +489,12 @@ svg path {
     opacity: 0.7;
   }
 }
-
+/* mission */
+.mission {
+	background: url(../images/bg1.jpg) top center / cover no-repeat;
+	height: 80vh;
+	background-attachment: fixed;
+}
 /* ==========classes section============================ */
 .classes {
   background: rgb(2, 2, 2);
@@ -684,6 +684,7 @@ svg path {
 .contacts__form {
   flex: 1 1 50%;
   padding: 0 15px;
+	position: relative;
 }
 .contacts__form > p {
   color: var(--main-color);
@@ -715,7 +716,7 @@ input::placeholder {
 }
 
 .contacts__btn {
-  display: block;
+	margin-right: 2rem;
 }
 
 .contacts__image {
@@ -770,7 +771,19 @@ input::placeholder {
 .error {
   border-color: red;
 }
-
+.form-submit {
+	position: absolute;
+	left: 50%;
+	bottom: 150px;
+	transform: translateX(-50%);
+	width: 100%;
+	border: var(--border);
+	padding: 10px;
+	border-radius: 10px;
+	font-family: monospace;
+	background-color: #fff;
+	color: #000;
+}
 /* ===================team=================================*/
 .team__list {
   display: flex;
@@ -880,6 +893,10 @@ input::placeholder {
 .footer {
 	padding: 20px 0;
 }
+.footer a:hover {
+	text-decoration: underline;
+}
+
 .footer__inner {
 	display: grid;
 	grid-template-columns: 1fr auto 1fr;
@@ -915,6 +932,9 @@ input::placeholder {
 	@media screen and (max-width: 767.98px){
 	justify-content: center;
 	}
+}
+.footer__social svg:hover{
+	transition: all 0.5s;
 }
 .footer__social svg:hover{
 	--color1: var(--main-color);
