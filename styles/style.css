@@ -611,16 +611,12 @@ address {
   width: 100%;
   padding: 1.5rem 1.5rem 2.5rem;
   font-size: 1.25rem;
-  /* backdrop-filter: brightness(60%); */
-  /* background: rgb(125,125,125); */
   background: linear-gradient(
     180deg,
     rgba(125, 125, 125, 0.7) 0%,
     rgba(125, 125, 125, 0.5) 75%,
     rgba(159, 159, 159, 0) 100%
   );
-
-  /* box-shadow: inset 0 0 25px rgba(101, 114, 126, 50), inset 0 0 25px rgba(140, 150, 170, 50), inset 0 0 25px rgb(83, 94, 104), inset 0 0 25px rgb(86, 96, 106); */
   @media only screen and (max-width: 991.98px) {
     padding: 1rem 1rem 2rem;
   }
@@ -651,9 +647,9 @@ address {
 }
 
 .swiper-pagination-bullet {
-  height: 6px;
+  height: 4px;
   width: 30px;
-  border-radius: 0;
+	border-radius: 4px;
   background-color: var(--main-color);
   opacity: 0.3;
 }
