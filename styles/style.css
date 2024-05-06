@@ -499,6 +499,16 @@ address {
   background-attachment: fixed;
 }
 
+.mission p {
+  font-size: 1.125rem;
+  text-align: justify;
+
+  @media screen and (min-width: 991.97px) {
+    column-count: 2;
+    column-gap: 5%;
+  }
+}
+
 /* ==========classes section============================ */
 .classes {
   background: rgb(2, 2, 2);
