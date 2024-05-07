@@ -126,12 +126,6 @@ window.onload = () => {
 		pagination: {
 			el: '.classes__pagination',
 		},
-
-		// Navigation arrows
-		navigation: {
-			nextEl: '.swiper-button-next',
-			prevEl: '.swiper-button-prev',
-		},
 		thumbs: {
 			swiper: swiperThumb,
 		},
