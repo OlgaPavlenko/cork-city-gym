@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="styles/style.css">
     <title>Corc City Gym</title>
 </head>
@@ -55,8 +56,6 @@
             </div>
         </div>
     </header>
-
-
 
     <main>
         <section class="hero">
@@ -416,37 +415,99 @@
             </div>
         </section>
 
-				<section class="contacts" id="contact">
-					<div class="container">
-						<h2 class="contacts__title title">/// Contact Us</h2>
-						<p class="contacts__text">One of the staff at the gym will  contact you by telephone or email to discuss their application.
-						</p>
-						<div class="contacts__inner">
-							<form action="#" class="contacts__form" id="form" method="post">
-								<fieldset>
-									<label class="contacts__label" for="name">Your Name*</label>
-									<input class="contacts__input required" id="name" type="text" name="name" placeholder="&#128578;"  data-placeholder="&#128578;"><br>
-								</fieldset>
-								<fieldset>
-									<label class="contacts__label" for="phone">Phone Number*</label>
-									<input class="contacts__input required" id="phone" type="text" name="phone" placeholder="&phone;"  data-placeholder="&phone;"><br>
-								</fieldset>
-								<fieldset>
-									<label class="contacts__label" for="email">Email*</label>
-									<input class="contacts__input required" id="email" type="text" name="email" placeholder="&commat;"  data-placeholder="&commat;"><br>
-								</fieldset>
-								<label class="contacts__label" for="massege">Your Massege</label>
-								<textarea class="contacts__msg" id="massege" rows="4" name="massege" maxlength="250"></textarea>
-								<p>* required fields</p>
-								<button class="contacts__btn btn" type="submit">Send</button>
-							</form>
-							<div class="contacts__image">
-								<img src="images/contacts.jpg" alt="Menbers photo">
-							</div>
-						</div>
-					</div>
-				</section>
-		
+        <section class="facilities">
+            <div class="container">
+                <h2 class="facilities__title title">/// Facilities</h2>
+                <ul class="facilities__content">
+                    <li class="content__item">
+                        <svg class="item__img" alt="facilitie 1" width="65" height="65">
+                            <use href="./images/facilities/symbol-defs-f.svg#icon-tech">
+                            </use>
+                        </svg>
+                        <h3 class="item__header">Cutting-Edge Technology</h3>
+                        <div class="item__overlay">
+                            <p class="item__description">Our gym has the most up-to-date technology to ensure you are
+                                getting the most from your workouts. Our 100-station gym uses the world renowned
+                                TechnoGym technology, with its evolutionary Key System, which stores individual
+                                programmes and workout history on a personal Techno gym key.</p>
+                        </div>
+                    </li>
+                    <li class="content__item">
+                        <svg class="item__img" alt="facilitie 1" width="55" height="55">
+                            <use href="./images/facilities/symbol-defs-f.svg#icon-weight">
+                            </use>
+                        </svg>
+                        <h3 class="item__header">Weights</h3>
+                        <div class="item__overlay">
+                            <p class="item__description">Selection of free weights and fixed weights.</p>
+                        </div>
+                    </li>
+                    <li class="content__item">
+                        <svg class="item__img" alt="facilitie 1" width="55" height="55">
+                            <use href="./images/facilities/symbol-defs-f.svg#icon-pool">
+                            </use>
+                        </svg>
+                        <h3 class="item__header">The pool</h3>
+                        <div class="item__overlay">
+                            <p class="item__description">Our 18-metre pool is kept at a constant, comfortable
+                                temperature with
+                                dedicated
+                                swim lanes. After your swim, why not relax in our jacuzzi, sauna, steam room or spa
+                                pool.</p>
+                        </div>
+                    </li>
+                    <li class="content__item">
+                        <svg class="item__img" alt="facilitie 1" width="55" height="55">
+                            <use href="./images/facilities/symbol-defs-f.svg#icon-cafe">
+                            </use>
+                        </svg>
+                        <h3 class="item__header">Lee Coffee Shop</h3>
+                        <div class="item__overlay">
+                            <p class="item__description">An onsite coffee shop. Grab a coffee and a snack. Make new
+                                friends!
+                            </p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+
+        <section class="contacts" id="contact">
+            <div class="container">
+                <h2 class="contacts__title title">/// Contact Us</h2>
+                <p class="contacts__text">One of the staff at the gym will contact you by telephone or email to discuss
+                    their application.
+                </p>
+                <div class="contacts__inner">
+                    <form action="#" class="contacts__form" id="form" method="post">
+                        <fieldset>
+                            <label class="contacts__label" for="name">Your Name*</label>
+                            <input class="contacts__input required" id="name" type="text" name="name"
+                                placeholder="&#128578;" data-placeholder="&#128578;"><br>
+                        </fieldset>
+                        <fieldset>
+                            <label class="contacts__label" for="phone">Phone Number*</label>
+                            <input class="contacts__input required" id="phone" type="text" name="phone"
+                                placeholder="&phone;" data-placeholder="&phone;"><br>
+                        </fieldset>
+                        <fieldset>
+                            <label class="contacts__label" for="email">Email*</label>
+                            <input class="contacts__input required" id="email" type="text" name="email"
+                                placeholder="&commat;" data-placeholder="&commat;"><br>
+                        </fieldset>
+                        <label class="contacts__label" for="massege">Your Massege</label>
+                        <textarea class="contacts__msg" id="massege" rows="4" name="massege" maxlength="250"></textarea>
+                        <p>* required fields</p>
+                        <button class="contacts__btn btn" type="submit">Send</button>
+                    </form>
+                    <div class="contacts__image">
+                        <img src="images/contacts.jpg" alt="Menbers photo">
+                    </div>
+                </div>
+            </div>
+        </section>
+
     </main>
     <footer class="footer">
         <div class="container">
