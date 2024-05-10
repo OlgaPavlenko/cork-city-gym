@@ -76,10 +76,19 @@ window.onload = () => {
     return !/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,8})+$/.test(input.value);
   }
   async function formSubmit() {
+		const inputVal = () => {
+			const input = document.getElementById("name").value;
+			return input; 
+		}
+		let value = inputVal()
     form.reset();
+		console.log(value)
     form.insertAdjacentHTML(
       "beforeend",
-      `<div class="form-submit"><span>Yuor massege is submited</span></div>`
+      `<div class="form-submit">
+				<p>Hi ${value} </p>
+				<p>Yuor massege is submited</p>
+			</div>`
     );
     setTimeout(() => {
       form.removeChild(form.querySelector(".form-submit"));
