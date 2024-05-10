@@ -490,13 +490,17 @@ address {
 }
 /* mission */
 .mission {
-  padding-top: 0;
+  margin-top: 120px;
   display: flex;
   justify-content: center;
   align-items: center;
   background: url(../images/bg1.jpg) top center / cover no-repeat;
   height: 80vh;
   background-attachment: fixed;
+}
+
+.mission__title {
+  margin-top: -150px;
 }
 
 .mission p {
@@ -678,9 +682,9 @@ address {
 .facilities__content {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   row-gap: 30px;
   column-gap: 30px;
-  justify-content: center;
 }
 .content__item {
   position: relative;
@@ -688,8 +692,13 @@ address {
   width: 18.75rem;
   min-height: 24rem;
   border: 1px solid var(--main-color);
-  border-radius: 4px;
+  border-radius: 5px;
   overflow: hidden;
+}
+
+.item__preview {
+  width: 100%;
+  object-fit: cover;
 }
 
 .content__item:hover .item__overlay,
@@ -702,42 +711,53 @@ address {
   opacity: 1;
 }
 
+.content__item:hover .item__header,
+.content__item:focus .item__header {
+  display: none;
+}
+
 .item__overlay {
   position: absolute;
   bottom: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: var(--main-color);
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(0, 0, 0, 0.9) 80%,
+    rgba(0, 0, 0, 1) 100%
+  );
   transform: translateY(100%);
   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .item__description {
-  position: absolute;
-  top: 0;
-  left: 0;
   transform: translateX(0);
-  padding: 12px 24px;
-  color: #000;
+  padding: 0 24px;
+  font-size: 1.1rem;
+  color: #fff;
   text-align: justify;
   opacity: 0;
   transition: opacity 2500ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .item__header {
+  position: absolute;
+  bottom: 0;
+  left: 15;
   padding: 0 10px;
   font-size: 1.1rem;
   min-height: 1.9rem;
-  align-self: last baseline;
   border-top: 1px solid var(--main-color);
   border-left: 1px solid var(--main-color);
   border-right: 1px solid var(--main-color);
-  border-radius: 4px;
+  border-radius: 5px;
 }
 
-.item__img {
-  padding: 10px 0 0 10px;
+.item__svg {
+  padding-left: 20px;
+  fill: #fff;
 }
 /* ===========contacts======================== */
 .contacts__text {
@@ -913,14 +933,14 @@ input::placeholder {
 }
 
 .item__img {
-  fill: currentColor;
+  fill: #ffffff;
 }
 
 .card__img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 10px;
+  border-radius: 5px;
 }
 
 /*================flip====================*/
@@ -928,7 +948,7 @@ input::placeholder {
   width: 300px;
   height: 500px;
   border: 1px solid var(--main-color);
-  border-radius: 10px;
+  border-radius: 5px;
   margin: 0 0 10px 0;
   perspective: 600px;
 }
@@ -952,23 +972,24 @@ input::placeholder {
   position: absolute;
   width: 100%;
   height: 100%;
-  line-height: 260px;
+
   color: white;
-  text-align: center;
+  text-align: justify;
   font-weight: bold;
-  font-size: 40px;
+  font-size: 1.2rem;
   backface-visibility: hidden;
 }
 
 .card__face--front {
   object-fit: cover;
-  border-radius: 10px;
+  border-radius: 5px;
 }
 
 .card__face--back {
   background: #000;
   transform: rotateY(180deg);
-  border-radius: 10px;
+  border-radius: 5px;
+  padding: 15px 15px;
 }
 
 /* ==================footer=================== */
