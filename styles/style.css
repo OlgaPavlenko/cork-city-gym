@@ -132,7 +132,6 @@ address {
 }
 
 @media (hover: hover) {
-
   /* when hover is supported */
   .btn:hover {
     background-color: inherit;
@@ -264,7 +263,7 @@ address {
   position: relative;
 }
 
-.header__schedule>p {
+.header__schedule > p {
   font-weight: 600;
   color: var(--main-color);
 
@@ -276,7 +275,7 @@ address {
   }
 }
 
-.header__schedule:hover>p {
+.header__schedule:hover > p {
   color: var(--main-color);
 }
 
@@ -528,10 +527,12 @@ address {
 /* ==========classes section============================ */
 .classes {
   background: rgb(2, 2, 2);
-  background: linear-gradient(0deg,
-      rgba(2, 2, 2, 1) 0%,
-      rgba(131, 131, 131, 1) 50%,
-      rgba(0, 0, 0, 1) 100%);
+  background: linear-gradient(
+    0deg,
+    rgba(2, 2, 2, 1) 0%,
+    rgba(131, 131, 131, 1) 50%,
+    rgba(0, 0, 0, 1) 100%
+  );
 }
 
 .classes__inner {
@@ -642,10 +643,12 @@ address {
   width: 100%;
   padding: 1.5rem 1.5rem 2.5rem;
   font-size: 1.25rem;
-  background: linear-gradient(180deg,
-      rgba(125, 125, 125, 0.7) 0%,
-      rgba(125, 125, 125, 0.5) 75%,
-      rgba(159, 159, 159, 0) 100%);
+  background: linear-gradient(
+    180deg,
+    rgba(125, 125, 125, 0.7) 0%,
+    rgba(125, 125, 125, 0.5) 75%,
+    rgba(159, 159, 159, 0) 100%
+  );
 
   @media only screen and (max-width: 991.98px) {
     padding: 1rem 1rem 2rem;
@@ -693,94 +696,97 @@ address {
 }
 /* ====================tech=============================== */
 .tech__wrapper {
-	background-color: #000;
-	padding-top: 100px;
+  background-color: #000;
+  padding-top: 100px;
 }
 
 .tech__inner {
-	position: relative;
-	display: flex;
-	overflow: hidden;
-	user-select: none;
-	gap: 20px;
+  position: relative;
+  display: flex;
+  overflow: hidden;
+  user-select: none;
+  gap: 20px;
 }
 
 .tech__inner::after,
 .tech__inner::before {
-	content: "";
-	height: 100%;
-	top: 0;
-	width: 10%;
-	position: absolute;
-	z-index: 1;
-	pointer-events: none;
+  content: "";
+  height: 100%;
+  top: 0;
+  width: 10%;
+  position: absolute;
+  z-index: 1;
+  pointer-events: none;
 }
 .tech__inner:hover .tech__items {
-	animation-play-state: paused;
+  animation-play-state: paused;
 }
 .tech__items {
-	display: flex;
-	align-items: center;
-	justify-content: space-around;
-	column-gap: 10px;
-	padding: 0;
-	animation: scroll 20s linear infinite;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  column-gap: 10px;
+  padding: 0;
+  animation: scroll 20s linear infinite;
 }
 
 .tech__inner::after {
-	left: 0;
-	background: linear-gradient(90deg,
-			rgba(0, 0, 0, 1) 0%,
-			rgba(0, 0, 0, 0) 100%)
+  left: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(0, 0, 0, 0) 100%
+  );
 }
 
 .tech__inner::before {
-	right: 0;
-	background: linear-gradient(90deg,
-			rgba(0, 0, 0, 0) 0%,
-			rgba(0, 0, 0, 1) 100%);
+  right: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 1) 100%
+  );
 }
 
 .tech__item {
   font-size: clamp(2.5rem, 5vw, 4rem);
-	font-weight: 900px;
-	text-transform: uppercase;
-	font-family: Oswald;
-	font-style: italic;
-	&:last-child {
-		width: 90px;
-		margin: 0 50px;
-		display: flex;
-		align-items: center;
-		@media (max-width: 991.98px){
-			width: 70px;
-			margin: 0 40px;
-		}
-	}
+  font-weight: 900px;
+  text-transform: uppercase;
+  font-family: Oswald;
+  font-style: italic;
+  &:last-child {
+    width: 90px;
+    margin: 0 50px;
+    display: flex;
+    align-items: center;
+    @media (max-width: 991.98px) {
+      width: 70px;
+      margin: 0 40px;
+    }
+  }
 }
 
 .tech__item img {
-	width: 100%;
+  width: 100%;
 }
 
 @keyframes scroll {
-	from {
-		transform: translateX(0);
-	}
-	to {
-		transform: translateX(calc(-100% - 20px));
-	}
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(calc(-100% - 20px));
+  }
 }
 
 /* ============memberships==================== */
 .memberships__wrap {
-
   display: flex;
   flex-direction: column;
   gap: 15px;
   position: relative;
   overflow: hidden;
-  background-image: url('../images/bg2.jpeg');
+  background-image: url("../images/bg2.jpeg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: 50% 50%;
@@ -793,10 +799,12 @@ address {
     width: 100%;
     height: 100%;
     z-index: 2;
-    background: radial-gradient(circle,
-        rgba(255, 255, 255, 0) 0%,
-        rgba(0, 0, 0, 0.9) 80%,
-        rgba(0, 0, 0, 1) 100%);
+    background: radial-gradient(
+      circle,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(0, 0, 0, 0.9) 80%,
+      rgba(0, 0, 0, 1) 100%
+    );
   }
 
   @media screen and (min-width: 767px) {
@@ -807,7 +815,6 @@ address {
   @media screen and (min-width: 1280px) {
     background-size: contain;
   }
-
 }
 
 .membership__card {
@@ -824,8 +831,6 @@ address {
     width: 350px;
     padding: 15px;
   }
-
-
 }
 
 .membership__option {
@@ -841,31 +846,23 @@ address {
   margin-left: 22px;
   font-size: 16px;
 
-
-
   &:not(:last-child) {
     margin-bottom: 15px;
-
-
   }
 
   &::before {
-    content: '';
+    content: "";
     display: block;
     position: absolute;
     top: 2px;
     left: -26px;
     width: 20px;
     height: 20px;
-    background-image: url('../images/checkd.svg');
+    background-image: url("../images/checkd.svg");
 
     background-repeat: no-repeat;
     background-size: contain;
-
-
   }
-
-
 
   @media screen and (min-width: 767px) {
     font-size: 19px;
@@ -899,7 +896,6 @@ address {
 
   @media screen and (min-width: 767px) {
     font-size: 19px;
-
   }
 }
 
@@ -952,10 +948,12 @@ address {
   left: 0;
   width: 100%;
   height: 100%;
-  background: radial-gradient(circle,
-      rgba(255, 255, 255, 0) 0%,
-      rgba(0, 0, 0, 0.9) 80%,
-      rgba(0, 0, 0, 1) 100%);
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(0, 0, 0, 0.9) 80%,
+    rgba(0, 0, 0, 1) 100%
+  );
   transform: translateY(100%);
   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -988,7 +986,6 @@ address {
   fill: #fff;
 }
 
->>>>>>> 33ac72ba3931e2a927934ec75fbd0689e234839c
 /* ===========contacts======================== */
 .contacts__text {
   margin-bottom: 30px;
@@ -1012,7 +1009,7 @@ address {
   position: relative;
 }
 
-.contacts__form>p {
+.contacts__form > p {
   color: var(--main-color);
   font-size: 1rem;
   font-style: italic;
@@ -1073,10 +1070,12 @@ input::placeholder {
   height: 100%;
   z-index: 2;
   background: rgb(255, 255, 255);
-  background: radial-gradient(circle,
-      rgba(255, 255, 255, 0) 0%,
-      rgba(0, 0, 0, 0.9) 80%,
-      rgba(0, 0, 0, 1) 100%);
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(0, 0, 0, 0.9) 80%,
+    rgba(0, 0, 0, 1) 100%
+  );
 }
 
 .contacts__image img {
@@ -1113,7 +1112,7 @@ input::placeholder {
   left: 0;
   bottom: 100px;
   margin-left: 15px;
-  width: calc((100% - 30px)*0.7);
+  width: calc((100% - 30px) * 0.7);
   padding: 10px;
   border-radius: 10px;
   font-family: monospace;
@@ -1311,7 +1310,7 @@ input::placeholder {
   }
 }
 
-.footer__schedule>p {
+.footer__schedule > p {
   font-size: 1.5rem;
   margin-bottom: 1rem;
 }
