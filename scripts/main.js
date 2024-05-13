@@ -76,13 +76,13 @@ window.onload = () => {
     return !/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,8})+$/.test(input.value);
   }
   async function formSubmit() {
-		const inputVal = () => {
-			const input = document.getElementById("name").value;
-			return input; 
-		}
-		let value = inputVal()
+    const inputVal = () => {
+      const input = document.getElementById("name").value;
+      return input;
+    };
+    let value = inputVal();
     form.reset();
-		console.log(value)
+    console.log(value);
     form.insertAdjacentHTML(
       "beforeend",
       `<div class="form-submit">
@@ -155,3 +155,7 @@ window.onload = () => {
   });
   // ==================================================
 };
+function flipCard() {
+  const card = document.querySelector(".card");
+  card.classList.toggle("is-flipped");
+}
