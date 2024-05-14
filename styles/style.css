@@ -490,6 +490,7 @@ address {
 }
 /* mission */
 .mission {
+  margin-top: 120px;
   padding-top: 0;
   display: flex;
   justify-content: center;
@@ -499,9 +500,10 @@ address {
   background-attachment: fixed;
 }
 
-.mission p {
+.mission__description {
   font-size: 1.125rem;
   text-align: justify;
+  text-shadow: 3px 3px 5px black, 0 0 1em black, 0 0 2em black;
 
   @media screen and (min-width: 991.97px) {
     column-count: 2;
