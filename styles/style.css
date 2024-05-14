@@ -1026,7 +1026,7 @@ address {
 .contacts__input,
 .contacts__msg {
   border: var(--border);
-  border-radius: 10px;
+  border-radius: 5px;
   width: 70%;
   background-color: transparent;
   padding: 0.5em;
@@ -1107,6 +1107,7 @@ input::placeholder {
   position: absolute;
   height: 150px;
   display: flex;
+	flex-direction: column;
   align-items: center;
   justify-content: center;
   left: 0;
