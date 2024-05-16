@@ -82,7 +82,6 @@ window.onload = () => {
     };
     let value = inputVal();
     form.reset();
-    console.log(value);
     form.insertAdjacentHTML(
       "beforeend",
       `<div class="form-submit">
