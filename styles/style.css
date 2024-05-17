@@ -780,6 +780,10 @@ address {
 }
 
 /* ============memberships==================== */
+.memberships__text {
+  margin-bottom: 30px;
+}
+
 .memberships__wrap {
   display: flex;
   flex-direction: column;
@@ -842,7 +846,7 @@ address {
 .membership__item {
   position: relative;
   margin-left: 22px;
-  font-size: 16px;
+  font-size: 1rem;
 
   &:not(:last-child) {
     margin-bottom: 15px;
@@ -863,7 +867,7 @@ address {
   }
 
   @media screen and (min-width: 767px) {
-    font-size: 19px;
+    font-size: 1.188rem;
     margin-left: 28px;
 
     &:not(:last-child) {
@@ -888,12 +892,12 @@ address {
 }
 
 .memberships__price {
-  font-size: 16px;
+  font-size: 1rem;
   position: absolute;
   bottom: 10px;
 
   @media screen and (min-width: 767px) {
-    font-size: 19px;
+    font-size: 1.188rem;
     bottom: 15px;
   }
 }
