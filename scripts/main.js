@@ -38,14 +38,14 @@ window.onload = () => {
     let error = 0;
     for (let i = 0; i < requireFields.length; i++) {
       let input = requireFields[i];
-      removeErrorMassege(input);
+      removeErrorMessage(input);
       if (input.value == "") {
-        addErrorMassege(input);
+        addErrorMessage(input);
         error++;
       } else {
         if (input.id == "email") {
           if (emailValidation(input)) {
-            addErrorMassege(input, "Input valid email");
+            addErrorMessage(input, "Input valid email");
             error++;
           }
         }
@@ -57,14 +57,14 @@ window.onload = () => {
     return error;
   });
 
-  function addErrorMassege(input, massege = "Fill out required fields") {
+  function addErrorMessage(input, message = "Fill out required fields") {
     input.classList.add("error");
     input.parentElement.insertAdjacentHTML(
       "beforeend",
-      `<p class="form-error">${massege}</p>`
+      `<p class="form-error">${message}</p>`
     );
   }
-  function removeErrorMassege(input) {
+  function removeErrorMessage(input) {
     input.classList.remove("error");
     if (input.parentElement.querySelector(".form-error")) {
       input.parentElement.removeChild(
@@ -82,12 +82,11 @@ window.onload = () => {
     };
     let value = inputVal();
     form.reset();
-    console.log(value);
     form.insertAdjacentHTML(
       "beforeend",
       `<div class="form-submit">
 				<p>Hi ${value} </p>
-				<p>Yuor massege is submited</p>
+				<p>Yuor message is submited</p>
 			</div>`
     );
     setTimeout(() => {
