@@ -820,16 +820,16 @@ address {
 }
 
 .membership__card {
-  height: 360px;
+  height: 380px;
   position: relative;
   border: 1px solid var(--main-color);
-  border-radius: 10px;
+  border-radius: 5px;
   padding: 10px;
   color: #fff;
   z-index: 3;
 
   @media screen and (min-width: 767px) {
-    height: 500px;
+    height: 525px;
     width: 350px;
     padding: 15px;
   }
@@ -894,10 +894,11 @@ address {
 .memberships__price {
   font-size: 1rem;
   position: absolute;
-  bottom: 0;
+  bottom: 10px;
 
   @media screen and (min-width: 767px) {
     font-size: 1.188rem;
+    bottom: 15px;
   }
 }
 
