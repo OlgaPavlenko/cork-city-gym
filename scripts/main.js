@@ -171,13 +171,10 @@ window.onload = () => {
       ? (height = (data.height * 2.54) / 100)
       : (height = data.height / 100);
 
-    if (height <= 50) {
+    if (height <= 0) {
       result.innerHTML = "Please, enter valid numbers!";
       return;
-    } else if (weight <= 2) {
-      result.innerHTML = "Please, enter valid numbers!";
-      return;
-    } else if (height >= 260 && weight >= 500) {
+    } else if (weight <= 0) {
       result.innerHTML = "Please, enter valid numbers!";
       return;
     }
