@@ -153,9 +153,45 @@ window.onload = () => {
       swiper: swiperThumb,
     },
   });
-  // ==================================================
+  // ======================calculator=====================
+
+  const calculator__form = document.getElementById("calculator__form");
+
+  calculator__form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const data = Object.fromEntries(new FormData(e.target).entries());
+    let bmi = 0;
+    let weight = 0;
+    let height = 0;
+    const result = document.getElementById("result");
+
+    data.weightOption === "lbs"
+      ? (weight = data.weight * 0.453592)
+      : (weight = data.weight);
+    data.heightOption === "in"
+      ? (height = (data.height * 2.54) / 100)
+      : (height = data.height / 100);
+
+    if (height <= 50) {
+      result.innerHTML = "Please, enter valid numbers!";
+      return;
+    } else if (weight <= 2) {
+      result.innerHTML = "Please, enter valid numbers!";
+      return;
+    } else if (height >= 260 && weight >= 500) {
+      result.innerHTML = "Please, enter valid numbers!";
+      return;
+    }
+    bmi = Math.round((weight / Math.pow(height, 2)) * 10) / 10;
+
+    if (bmi <= 18.4) {
+      result.innerHTML = `Your Body Mass Index is ${bmi}. This is considered as underweight`;
+    } else if (bmi >= 18.5 && bmi <= 24.9) {
+      result.innerHTML = `Your Body Mass Index is ${bmi}. This is considered as normal`;
+    } else if (bmi >= 25 && bmi <= 30) {
+      result.innerHTML = `Your Body Mass Index is ${bmi}. This is considered as overweight`;
+    } else if (bmi >= 30.1) {
+      result.innerHTML = `Your Body Mass Index is ${bmi}. This is considered as obese`;
+    }
+  });
 };
-function flipCard() {
-  const card = document.querySelector(".card");
-  card.classList.toggle("is-flipped");
-}
