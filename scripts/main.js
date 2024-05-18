@@ -141,6 +141,7 @@ window.onload = () => {
     },
     pagination: {
       el: ".classes__pagination",
+			clickable: true,
     },
 
     // Navigation arrows
