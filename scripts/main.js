@@ -1,6 +1,5 @@
 "use strict";
 
-window.onload = () => {
   // ===================init menu burger================
   (function menuInit() {
     if (document.querySelector(".icon-menu")) {
@@ -17,8 +16,9 @@ window.onload = () => {
   })();
   //============= form ========================
   const form = document.getElementById("form");
+	const buttonSubmit = document.getElementById("submitBtn");
 
-  // add and remove placeholder
+  // add and remove placeholders
   form.addEventListener("focusin", (e) => {
     if (e.target.tagName === "INPUT") {
       e.target.placeholder = "";
@@ -31,68 +31,93 @@ window.onload = () => {
   });
   //============= validation form ========================
 
-  form.addEventListener("submit", (e) => {
-    e.preventDefault();
-    const requireFields = document.querySelectorAll(".required");
+		//===========tracking changes in the form fields=========
+form.addEventListener('change', (e) => {
+	if (e.target.value == "") {
+		addErrorMessage(e.target);
+	}else {
+		removeErrorMessage(e.target)
+		if(e.target.id == 'email') {
+			inputValidation(emailValidation, e.target, 'form-error--field', 'Input valid email')
+		}
+		if(e.target.id == 'phone') {
+			inputValidation(phoneValidation, e.target, 'form-error--field', 'Input phone number like +353XX XXX XXXX')
+		}
+	}
+	// ====check if form fields contain errors=======
+	const requireFields = document.querySelectorAll(".required");
+	let error = 0;
+	let errorMessage = null
+	for (let i = 0; i < requireFields.length; i++) {
+		let input = requireFields[i];
+		if(input.value =="") {
+			error++
+		}
+		errorMessage = input.parentElement.querySelector(['.form-error', '.form-error--field'])
+		if(errorMessage) error++
+	}
+	if(!error) {
+		buttonSubmit.removeAttribute("disabled")
+	}
+})
+// check input field values and show error messages
+function inputValidation(validator, input, className, message) {
+	const formError = input.parentElement.querySelector(`.${className}`)
+	if(!validator(input) && !input.parentElement.contains(formError)) {
+		removeErrorMessage(input)
+		addErrorMessage(input, className, message)
+	} else if(validator(input) || !input.value){
+		removeErrorMessage(input)
+	}
+	return false
+}
+form.addEventListener("submit", (e) => {
+	e.preventDefault();
+	formSubmit();
+	buttonSubmit.setAttribute("disabled", "true")
+});
 
-    let error = 0;
-    for (let i = 0; i < requireFields.length; i++) {
-      let input = requireFields[i];
-      removeErrorMessage(input);
-      if (input.value == "") {
-        addErrorMessage(input);
-        error++;
-      } else {
-        if (input.id == "email") {
-          if (emailValidation(input)) {
-            addErrorMessage(input, "Input valid email");
-            error++;
-          }
-        }
-      }
-    }
-    if (!error) {
-      formSubmit();
-    }
-    return error;
-  });
+function addErrorMessage(input, className = 'form-error',  message = "Fill out required fields") {
+	input.classList.add("error");
+	input.parentElement.insertAdjacentHTML(
+		"beforeend",
+		`<p class=${className}>${message}</p>`
+	);
+}
+function removeErrorMessage(input) {
+	input.classList.remove("error");
+	if (input.parentElement.querySelector("p")) {
+		input.parentElement.removeChild(
+			input.parentElement.querySelector("p")
+		);
+	}
+}
+function emailValidation(input) {
+	return /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,8})+$/.test(input.value);
+}
+function phoneValidation(input) {
+	return /^((0|\+)[\- ]?)?(\(?\d{3,5}\)?[\- ]?)?[\d\- ]{5,10}$/.test(input.value);
+}
+// ======Imitation of sending the form================
+async function formSubmit() {
+	const inputVal = () => {
+		const input = document.getElementById("name").value;
+		return input;
+	};
+	let value = inputVal();
+	form.reset();
+	form.insertAdjacentHTML(
+		"beforeend",
+		`<div class="form-submit">
+			<p>Hi ${value} </p>
+			<p>Yuor message is submited</p>
+		</div>`
+	);
+	setTimeout(() => {
+		form.removeChild(form.querySelector(".form-submit"));
+	}, 3000);
+}
 
-  function addErrorMessage(input, message = "Fill out required fields") {
-    input.classList.add("error");
-    input.parentElement.insertAdjacentHTML(
-      "beforeend",
-      `<p class="form-error">${message}</p>`
-    );
-  }
-  function removeErrorMessage(input) {
-    input.classList.remove("error");
-    if (input.parentElement.querySelector(".form-error")) {
-      input.parentElement.removeChild(
-        input.parentElement.querySelector(".form-error")
-      );
-    }
-  }
-  function emailValidation(input) {
-    return !/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,8})+$/.test(input.value);
-  }
-  async function formSubmit() {
-    const inputVal = () => {
-      const input = document.getElementById("name").value;
-      return input;
-    };
-    let value = inputVal();
-    form.reset();
-    form.insertAdjacentHTML(
-      "beforeend",
-      `<div class="form-submit">
-				<p>Hi ${value} </p>
-				<p>Yuor message is submited</p>
-			</div>`
-    );
-    setTimeout(() => {
-      form.removeChild(form.querySelector(".form-submit"));
-    }, 3000);
-  }
   // ======================init swiper=================
   const swiperThumb = new Swiper(".classes__slider-thumbs", {
     // Optional parameters
@@ -141,6 +166,7 @@ window.onload = () => {
     },
     pagination: {
       el: ".classes__pagination",
+			clickable: true,
     },
 
     // Navigation arrows
@@ -153,8 +179,3 @@ window.onload = () => {
     },
   });
   // ==================================================
-};
-function flipCard() {
-  const card = document.querySelector(".card");
-  card.classList.toggle("is-flipped");
-}
