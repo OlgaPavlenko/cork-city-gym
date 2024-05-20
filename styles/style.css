@@ -9,7 +9,6 @@
 /* ========== reset default styles================ */
 * {
   scroll-behavior: smooth;
-  @import url(https://fonts.googleapis.com/css?family=Oswald:200,300,regular,500,600,700);
   box-sizing: border-box;
   margin: 0;
   padding: 0;
