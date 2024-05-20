@@ -70,7 +70,10 @@ button {
   border: none;
   outline: none;
 }
-
+button:disabled {
+	background-color: #757575;
+	pointer-events: none;
+}
 textarea {
   resize: none;
 }
@@ -1093,7 +1096,7 @@ input::placeholder {
   }
 }
 
-.form-error {
+.form-error, .form-error--field {
   color: red;
   font-size: 1rem;
   font-style: italic;
