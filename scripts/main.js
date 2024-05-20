@@ -41,7 +41,7 @@ form.addEventListener('change', (e) => {
 			inputValidation(emailValidation, e.target, 'form-error--field', 'Input valid email')
 		}
 		if(e.target.id == 'phone') {
-			inputValidation(phoneValidation, e.target, 'form-error--field', 'Input phone number like +353 XX XXX XXXX')
+			inputValidation(phoneValidation, e.target, 'form-error--field', 'Input phone number like +353XX XXX XXXX')
 		}
 	}
 	// ====check if form fields contain errors=======

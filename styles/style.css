@@ -70,7 +70,6 @@ button {
   outline: none;
 }
 button:disabled {
-	background-color: #757575;
 	pointer-events: none;
 }
 textarea {
