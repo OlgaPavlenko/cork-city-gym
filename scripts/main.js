@@ -1,6 +1,5 @@
 "use strict";
 
-window.onload = () => {
   // ===================init menu burger================
   (function menuInit() {
     if (document.querySelector(".icon-menu")) {
@@ -31,6 +30,7 @@ window.onload = () => {
     }
   });
   //============= validation form ========================
+
 		//===========tracking changes in the form fields=========
 form.addEventListener('change', (e) => {
 	if (e.target.value == "") {
@@ -77,46 +77,46 @@ form.addEventListener("submit", (e) => {
 	buttonSubmit.setAttribute("disabled", "true")
 });
 
-  function addErrorMessage(input, className = 'form-error',  message = "Fill out required fields") {
-    input.classList.add("error");
-    input.parentElement.insertAdjacentHTML(
-      "beforeend",
-      `<p class=${className}>${message}</p>`
-    );
-  }
-  function removeErrorMessage(input) {
-    input.classList.remove("error");
-    if (input.parentElement.querySelector("p")) {
-      input.parentElement.removeChild(
-        input.parentElement.querySelector("p")
-      );
-    }
-  }
-  function emailValidation(input) {
-    return /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,8})+$/.test(input.value);
-  }
-  function phoneValidation(input) {
-    return /^((0|\+)[\- ]?)?(\(?\d{3,5}\)?[\- ]?)?[\d\- ]{5,10}$/.test(input.value);
-  }
-	// ======Imitation of sending the form================
-  async function formSubmit() {
-    const inputVal = () => {
-      const input = document.getElementById("name").value;
-      return input;
-    };
-    let value = inputVal();
-    form.reset();
-    form.insertAdjacentHTML(
-      "beforeend",
-      `<div class="form-submit">
-				<p>Hi ${value} </p>
-				<p>Yuor message is submited</p>
-			</div>`
-    );
-    setTimeout(() => {
-      form.removeChild(form.querySelector(".form-submit"));
-    }, 3000);
-  }
+function addErrorMessage(input, className = 'form-error',  message = "Fill out required fields") {
+	input.classList.add("error");
+	input.parentElement.insertAdjacentHTML(
+		"beforeend",
+		`<p class=${className}>${message}</p>`
+	);
+}
+function removeErrorMessage(input) {
+	input.classList.remove("error");
+	if (input.parentElement.querySelector("p")) {
+		input.parentElement.removeChild(
+			input.parentElement.querySelector("p")
+		);
+	}
+}
+function emailValidation(input) {
+	return /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,8})+$/.test(input.value);
+}
+function phoneValidation(input) {
+	return /^((0|\+)[\- ]?)?(\(?\d{3,5}\)?[\- ]?)?[\d\- ]{5,10}$/.test(input.value);
+}
+// ======Imitation of sending the form================
+async function formSubmit() {
+	const inputVal = () => {
+		const input = document.getElementById("name").value;
+		return input;
+	};
+	let value = inputVal();
+	form.reset();
+	form.insertAdjacentHTML(
+		"beforeend",
+		`<div class="form-submit">
+			<p>Hi ${value} </p>
+			<p>Yuor message is submited</p>
+		</div>`
+	);
+	setTimeout(() => {
+		form.removeChild(form.querySelector(".form-submit"));
+	}, 3000);
+}
 
   // ======================init swiper=================
   const swiperThumb = new Swiper(".classes__slider-thumbs", {
@@ -179,4 +179,3 @@ form.addEventListener("submit", (e) => {
     },
   });
   // ==================================================
-};
