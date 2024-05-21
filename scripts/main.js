@@ -85,9 +85,11 @@ function inputValidation(validator, input, className, message) {
   return false;
 }
 form.addEventListener("submit", (e) => {
-  e.preventDefault();
-  formSubmit();
-  buttonSubmit.setAttribute("disabled", "true");
+	const body = Object.fromEntries(new FormData(e.target).entries());
+	e.preventDefault();
+	formSubmit(body);
+	buttonSubmit.setAttribute("disabled", "true")
+
 });
 
 function addErrorMessage(
@@ -116,18 +118,19 @@ function phoneValidation(input) {
   );
 }
 // ======Imitation of sending the form================
-async function formSubmit() {
-  const inputVal = () => {
-    const input = document.getElementById("name").value;
-    return input;
-  };
-  let value = inputVal();
-  form.reset();
-  form.insertAdjacentHTML(
-    "beforeend",
-    `<div class="form-submit">
+
+async function formSubmit(body) {
+	const value = document.getElementById("name").value;
+	let response = await fetch('/index.html', {
+		method: 'POST',
+		body: body
+	});
+	form.reset();
+	form.insertAdjacentHTML(
+		"beforeend",
+		`<div class="form-submit">
 			<p>Hi ${value} </p>
-			<p>Yuor message is submited</p>
+			<p>Your message is submited</p>
 		</div>`
   );
   setTimeout(() => {
