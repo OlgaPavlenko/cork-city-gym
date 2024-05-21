@@ -100,11 +100,7 @@ function phoneValidation(input) {
 }
 // ======Imitation of sending the form================
 async function formSubmit() {
-	const inputVal = () => {
-		const input = document.getElementById("name").value;
-		return input;
-	};
-	let value = inputVal();
+	const value = document.getElementById("name").value;
 	form.reset();
 	form.insertAdjacentHTML(
 		"beforeend",
