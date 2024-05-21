@@ -9,7 +9,6 @@
 /* ========== reset default styles================ */
 * {
   scroll-behavior: smooth;
-  @import url(https://fonts.googleapis.com/css?family=Oswald:200,300,regular,500,600,700);
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -70,7 +69,9 @@ button {
   border: none;
   outline: none;
 }
-
+button:disabled {
+  pointer-events: none;
+}
 textarea {
   resize: none;
 }
@@ -1109,7 +1110,8 @@ input::placeholder {
   }
 }
 
-.form-error {
+.form-error,
+.form-error--field {
   color: red;
   font-size: 1rem;
   font-style: italic;
@@ -1255,6 +1257,7 @@ input::placeholder {
 
 .calculator__form {
   text-align: center;
+  min-width: 34rem;
 }
 
 .calculator__form h3 {
