@@ -72,8 +72,9 @@ function inputValidation(validator, input, className, message) {
 	return false
 }
 form.addEventListener("submit", (e) => {
+	const body = Object.fromEntries(new FormData(e.target).entries());
 	e.preventDefault();
-	formSubmit();
+	formSubmit(body);
 	buttonSubmit.setAttribute("disabled", "true")
 });
 
@@ -99,14 +100,18 @@ function phoneValidation(input) {
 	return /^((0|\+)[\- ]?)?(\(?\d{3,5}\)?[\- ]?)?[\d\- ]{5,10}$/.test(input.value);
 }
 // ======Imitation of sending the form================
-async function formSubmit() {
+async function formSubmit(body) {
 	const value = document.getElementById("name").value;
+	let response = await fetch('/index.html', {
+		method: 'POST',
+		body: body
+	});
 	form.reset();
 	form.insertAdjacentHTML(
 		"beforeend",
 		`<div class="form-submit">
 			<p>Hi ${value} </p>
-			<p>Yuor message is submited</p>
+			<p>Your message is submited</p>
 		</div>`
 	);
 	setTimeout(() => {
