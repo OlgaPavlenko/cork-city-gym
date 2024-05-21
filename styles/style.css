@@ -132,7 +132,6 @@ address {
 }
 
 @media (hover: hover) {
-
   /* when hover is supported */
   .btn:hover {
     background-color: inherit;
@@ -264,7 +263,7 @@ address {
   position: relative;
 }
 
-.header__schedule>p {
+.header__schedule > p {
   font-weight: 600;
   color: var(--main-color);
 
@@ -276,7 +275,7 @@ address {
   }
 }
 
-.header__schedule:hover>p {
+.header__schedule:hover > p {
   color: var(--main-color);
 }
 
@@ -529,10 +528,12 @@ address {
 /* ==========classes section============================ */
 .classes {
   background: rgb(2, 2, 2);
-  background: linear-gradient(0deg,
-      rgba(2, 2, 2, 1) 0%,
-      rgba(131, 131, 131, 1) 50%,
-      rgba(0, 0, 0, 1) 100%);
+  background: linear-gradient(
+    0deg,
+    rgba(2, 2, 2, 1) 0%,
+    rgba(131, 131, 131, 1) 50%,
+    rgba(0, 0, 0, 1) 100%
+  );
 }
 
 .classes__inner {
@@ -643,10 +644,12 @@ address {
   width: 100%;
   padding: 1.5rem 1.5rem 2.5rem;
   font-size: 1.25rem;
-  background: linear-gradient(180deg,
-      rgba(125, 125, 125, 0.7) 0%,
-      rgba(125, 125, 125, 0.5) 75%,
-      rgba(159, 159, 159, 0) 100%);
+  background: linear-gradient(
+    180deg,
+    rgba(125, 125, 125, 0.7) 0%,
+    rgba(125, 125, 125, 0.5) 75%,
+    rgba(159, 159, 159, 0) 100%
+  );
 
   @media only screen and (max-width: 991.98px) {
     padding: 1rem 1rem 2rem;
@@ -733,16 +736,20 @@ address {
 
 .tech__inner::after {
   left: 0;
-  background: linear-gradient(90deg,
-      rgba(0, 0, 0, 1) 0%,
-      rgba(0, 0, 0, 0) 100%);
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(0, 0, 0, 0) 100%
+  );
 }
 
 .tech__inner::before {
   right: 0;
-  background: linear-gradient(90deg,
-      rgba(0, 0, 0, 0) 0%,
-      rgba(0, 0, 0, 1) 100%);
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 1) 100%
+  );
 }
 
 .tech__item {
@@ -803,10 +810,12 @@ address {
     width: 100%;
     height: 100%;
     z-index: 2;
-    background: radial-gradient(circle,
-        rgba(255, 255, 255, 0) 0%,
-        rgba(0, 0, 0, 0.9) 80%,
-        rgba(0, 0, 0, 1) 100%);
+    background: radial-gradient(
+      circle,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(0, 0, 0, 0.9) 80%,
+      rgba(0, 0, 0, 1) 100%
+    );
   }
 
   @media screen and (min-width: 767px) {
@@ -839,7 +848,6 @@ address {
   margin-left: 18px;
   margin-bottom: 12px;
   color: var(--main-color);
-
 
   @media screen and (min-width: 767px) {
     margin-left: 26px;
@@ -956,10 +964,12 @@ address {
   left: 0;
   width: 100%;
   height: 100%;
-  background: radial-gradient(circle,
-      rgba(255, 255, 255, 0) 0%,
-      rgba(0, 0, 0, 0.9) 80%,
-      rgba(0, 0, 0, 1) 100%);
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(0, 0, 0, 0.9) 80%,
+    rgba(0, 0, 0, 1) 100%
+  );
   transform: translateY(100%);
   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -1015,7 +1025,7 @@ address {
   position: relative;
 }
 
-.contacts__form>p {
+.contacts__form > p {
   color: var(--main-color);
   font-size: 1rem;
   font-style: italic;
@@ -1076,10 +1086,12 @@ input::placeholder {
   height: 100%;
   z-index: 2;
   background: rgb(255, 255, 255);
-  background: radial-gradient(circle,
-      rgba(255, 255, 255, 0) 0%,
-      rgba(0, 0, 0, 0.9) 80%,
-      rgba(0, 0, 0, 1) 100%);
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(0, 0, 0, 0.9) 80%,
+    rgba(0, 0, 0, 1) 100%
+  );
 }
 
 .contacts__image img {
@@ -1148,11 +1160,6 @@ input::placeholder {
   text-align: center;
 }
 
-.item__container {
-  width: 44px;
-  height: 44px;
-}
-
 .item__social {
   display: flex;
   justify-content: center;
@@ -1176,12 +1183,11 @@ input::placeholder {
 
 .item__link:hover,
 .item__link:focus {
-  background-color: var(--main-color);
-  color: #ffffff;
+  --color1: var(--main-color);
 }
 
 .item__img {
-  fill: #ffffff;
+  fill: inherit;
 }
 
 .card__img {
@@ -1193,8 +1199,8 @@ input::placeholder {
 
 /*================flip====================*/
 .team__scene {
-  width: 300px;
-  height: 500px;
+  width: 18.75rem;
+  height: 25rem;
   border: 1px solid var(--main-color);
   border-radius: 5px;
   margin: 0 0 10px 0;
@@ -1374,7 +1380,7 @@ input::placeholder {
   }
 }
 
-.footer__schedule>p {
+.footer__schedule > p {
   font-size: 1.5rem;
   margin-bottom: 1rem;
 }
