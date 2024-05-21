@@ -1258,6 +1258,9 @@ input::placeholder {
 .calculator__form {
   text-align: center;
   min-width: 34rem;
+  @media screen and (max-width: 767.98px) {
+    min-width: 18rem;
+  }
 }
 
 .calculator__form h3 {
@@ -1283,7 +1286,6 @@ input::placeholder {
 .calculator__height {
   display: flex;
   justify-content: space-around;
-  /* column-gap: 10px; */
 }
 
 .value {
