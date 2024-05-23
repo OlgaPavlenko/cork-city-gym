@@ -200,9 +200,9 @@ const swiperMain = new Swiper(".classes__slider", {
 });
 // ======================calculator=====================
 
-const calculator__form = document.getElementById("calculator__form");
+const calculatorForm = document.getElementById("calculator");
 
-calculator__form.addEventListener("submit", (e) => {
+calculatorForm.addEventListener("submit", (e) => {
   e.preventDefault();
   const data = Object.fromEntries(new FormData(e.target).entries());
   let bmi = 0;

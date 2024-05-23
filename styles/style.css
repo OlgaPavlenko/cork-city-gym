@@ -505,9 +505,13 @@ address {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: url(../images/bg1.jpg) top center / cover no-repeat;
+  background: url(../images/mission.jpg) center center / cover no-repeat;
   height: 80vh;
   background-attachment: fixed;
+
+  @media only screen and (max-width: 767.98px) {
+    background-attachment: unset;
+  }
 }
 
 .mission__title {
