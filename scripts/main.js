@@ -85,11 +85,10 @@ function inputValidation(validator, input, className, message) {
   return false;
 }
 form.addEventListener("submit", (e) => {
-	const body = Object.fromEntries(new FormData(e.target).entries());
-	e.preventDefault();
-	formSubmit(body);
-	buttonSubmit.setAttribute("disabled", "true")
-
+  const body = Object.fromEntries(new FormData(e.target).entries());
+  e.preventDefault();
+  formSubmit(body);
+  buttonSubmit.setAttribute("disabled", "true");
 });
 
 function addErrorMessage(
@@ -120,15 +119,15 @@ function phoneValidation(input) {
 // ======Imitation of sending the form================
 
 async function formSubmit(body) {
-	const value = document.getElementById("name").value;
-	let response = await fetch('/index.html', {
-		method: 'POST',
-		body: body
-	});
-	form.reset();
-	form.insertAdjacentHTML(
-		"beforeend",
-		`<div class="form-submit">
+  const value = document.getElementById("name").value;
+  let response = await fetch("/index.html", {
+    method: "POST",
+    body: body,
+  });
+  form.reset();
+  form.insertAdjacentHTML(
+    "beforeend",
+    `<div class="form-submit">
 			<p>Hi ${value} </p>
 			<p>Your message is submited</p>
 		</div>`
@@ -218,21 +217,21 @@ calculatorForm.addEventListener("submit", (e) => {
     : (height = data.height / 100);
 
   if (height <= 0) {
-    result.innerHTML = "Please, enter valid numbers!";
+    result.innerText = "Please, enter valid numbers!";
     return;
   } else if (weight <= 0) {
-    result.innerHTML = "Please, enter valid numbers!";
+    result.innerText = "Please, enter valid numbers!";
     return;
   }
   bmi = Math.round((weight / Math.pow(height, 2)) * 10) / 10;
 
   if (bmi <= 18.4) {
-    result.innerHTML = `Your Body Mass Index is ${bmi}. This is considered as underweight`;
+    result.innerText = `Your Body Mass Index is ${bmi}. This is considered as underweight`;
   } else if (bmi >= 18.5 && bmi <= 24.9) {
-    result.innerHTML = `Your Body Mass Index is ${bmi}. This is considered as normal`;
+    result.innerText = `Your Body Mass Index is ${bmi}. This is considered as normal`;
   } else if (bmi >= 25 && bmi <= 30) {
-    result.innerHTML = `Your Body Mass Index is ${bmi}. This is considered as overweight`;
+    result.innerText = `Your Body Mass Index is ${bmi}. This is considered as overweight`;
   } else if (bmi >= 30.1) {
-    result.innerHTML = `Your Body Mass Index is ${bmi}. This is considered as obese`;
+    result.innerText = `Your Body Mass Index is ${bmi}. This is considered as obese`;
   }
 });
