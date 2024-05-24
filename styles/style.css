@@ -427,10 +427,10 @@ address {
 }
 
 .hero__inner {
-	position: relative;
-	background: url(../images/bg3.jpg) top center / cover no-repeat;
-	z-index: -2;
-	&::after {
+  position: relative;
+  background: url(../images/bg3.jpg) top center / cover no-repeat;
+  z-index: -2;
+  &::after {
     content: "";
     position: absolute;
     top: 0;
@@ -449,15 +449,14 @@ address {
   @media only screen and (max-width: 767.98px) {
     margin: 0 -15px;
   }
-	
 }
 
 .hero__content {
   padding: 20px 0;
-	max-width: 60%;
+  max-width: 60%;
   @media only screen and (max-width: 767.98px) {
     padding: 15px;
-		max-width: 100%;
+    max-width: 100%;
   }
 }
 
@@ -528,6 +527,7 @@ address {
 
 .mission__title {
   margin-top: -150px;
+  text-shadow: 3px 3px 5px black, 0 0 1em black, 0 0 2em black;
 }
 
 .mission__description {
@@ -1307,6 +1307,7 @@ input::placeholder {
   width: 30%;
   border: 1px solid var(--main-color);
   border-radius: 5px;
+  padding-left: 7px;
 }
 
 .calculator__sel {
