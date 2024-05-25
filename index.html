@@ -513,9 +513,12 @@
 							</select>
 						</div>
 					</div>
-					<button type="submit" class="calculator__button btn">calculate
+					<button type="submit" onclick="switchToReset()" class="calculator__button btn"
+						id="submitButton">calculate
 						BMI</button>
-					<p id="result"></p>
+					<button type="reset" onclick="switchToSubmit()" class="calculator__button btn reset"
+						id="resetButton">reset</button>
+					<p class="calculator__result" id="result"></p>
 				</form>
 			</div>
 		</section>

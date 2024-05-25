@@ -200,6 +200,20 @@ const swiperMain = new Swiper(".classes__slider", {
 // ======================calculator=====================
 
 const calculatorForm = document.getElementById("calculator");
+const submitButton = document.getElementById("submitButton");
+const resetButton = document.getElementById("resetButton");
+const result = document.getElementById("result");
+
+const switchToSubmit = () => {
+  submitButton.style.display = "block";
+  resetButton.style.display = "none";
+  result.innerText = " ";
+};
+
+const switchToReset = () => {
+  submitButton.style.display = "none";
+  resetButton.style.display = "block";
+};
 
 calculatorForm.addEventListener("submit", (e) => {
   e.preventDefault();
@@ -207,7 +221,6 @@ calculatorForm.addEventListener("submit", (e) => {
   let bmi = 0;
   let weight = 0;
   let height = 0;
-  const result = document.getElementById("result");
 
   data.weightOption === "lbs"
     ? (weight = data.weight * 0.453592)

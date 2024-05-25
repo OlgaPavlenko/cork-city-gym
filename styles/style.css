@@ -1319,6 +1319,18 @@ input::placeholder {
 .calculator__button {
   background-color: #ffed00;
   margin-bottom: 15px;
+  width: 15rem;
+  margin: 0 auto;
+}
+
+.reset {
+  display: none;
+  background-color: #000;
+  color: white;
+}
+
+.calculator__result {
+  margin-top: 10px;
 }
 
 /* ==================footer=================== */
