@@ -33,9 +33,9 @@ form.addEventListener("focusout", (e) => {
 
 //===========tracking changes in the form fields=========
 form.addEventListener("change", (e) => {
-  if (e.target.value == "") {
+  if (e.target.value == "" && e.target.tagName === "INPUT") {
     addErrorMessage(e.target);
-  } else {
+  } else if(e.target.tagName === "INPUT"){
     removeErrorMessage(e.target);
     if (e.target.id == "email") {
       inputValidation(
