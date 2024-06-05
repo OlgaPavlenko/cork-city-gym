@@ -123,6 +123,7 @@ address {
 .btn {
   background-color: var(--main-color);
   padding: 14px 46px;
+	min-width: 210px;
   font-weight: 600;
   font-size: 1.25rem;
   /* 20/16 */
