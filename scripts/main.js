@@ -33,15 +33,15 @@ form.addEventListener("focusout", (e) => {
 
 //===========tracking changes in the form fields=========
 form.addEventListener("change", (e) => {
-  if (e.target.value == "" && e.target.tagName === "INPUT") {
-    addErrorMessage(e.target);
-  } else if(e.target.tagName === "INPUT"){
+	if(e.target.tagName === "INPUT"){
     removeErrorMessage(e.target);
+    if (e.target.id == "name" && e.target.value.trim() == "") {
+			addErrorMessage(e.target)
+		}
     if (e.target.id == "email") {
       inputValidation(
         emailValidation,
         e.target,
-        "form-error--field",
         "Input valid email"
       );
     }
@@ -49,7 +49,6 @@ form.addEventListener("change", (e) => {
       inputValidation(
         phoneValidation,
         e.target,
-        "form-error--field",
         "Input phone number like +353XX XXX XXXX"
       );
     }
@@ -63,10 +62,7 @@ form.addEventListener("change", (e) => {
     if (input.value == "") {
       error++;
     }
-    errorMessage = input.parentElement.querySelector([
-      ".form-error",
-      ".form-error--field",
-    ]);
+    errorMessage = input.parentElement.querySelector(".form-error");
     if (errorMessage) error++;
   }
   if (!error) {
@@ -74,11 +70,11 @@ form.addEventListener("change", (e) => {
   }
 });
 // check input field values and show error messages
-function inputValidation(validator, input, className, message) {
-  const formError = input.parentElement.querySelector(`.${className}`);
+function inputValidation(validator, input, message) {
+  const formError = input.parentElement.querySelector(".form-error");
   if (!validator(input) && !input.parentElement.contains(formError)) {
     removeErrorMessage(input);
-    addErrorMessage(input, className, message);
+    addErrorMessage(input, message);
   } else if (validator(input) || !input.value) {
     removeErrorMessage(input);
   }
@@ -93,13 +89,12 @@ form.addEventListener("submit", (e) => {
 
 function addErrorMessage(
   input,
-  className = "form-error",
   message = "Fill out required fields"
 ) {
   input.classList.add("error");
   input.parentElement.insertAdjacentHTML(
     "beforeend",
-    `<p class=${className}>${message}</p>`
+    `<p class="form-error">${message}</p>`
   );
 }
 function removeErrorMessage(input) {
@@ -119,7 +114,7 @@ function phoneValidation(input) {
 // ======Imitation of sending the form================
 
 async function formSubmit(body) {
-  const value = document.getElementById("name").value;
+  const value = document.getElementById("name").value.trim();
   let response = await fetch("/index.html", {
     method: "POST",
     body: body,
