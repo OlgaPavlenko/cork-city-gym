@@ -331,12 +331,50 @@ address {
 .navbar__link:hover::after {
   width: 100%;
 }
-
+.navbar-submenu {
+	position: relative;
+	cursor: pointer;
+	@media only screen and (max-width: 991.98px) {
+		font-size: 1.5rem;
+		font-weight: 700;
+	}
+}
+.navbar-submenu:hover {
+	>.navbar-submenu__list {
+		opacity: 1;
+		visibility: visible;
+		transform: translateY(0);
+	}
+}
+.navbar-submenu__list { 
+	padding-left: 20px;
+	padding-top: 20px;
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+	transition:  0.5s;
+	@media only screen and (min-width: 991.98px) {
+		position: absolute;
+		top: 30px;
+		left: 0;
+		width: 150px;
+		height: 0;
+		padding: 5px;
+		opacity: 0;
+		visibility: hidden;
+		transform: translateY(-100%);
+		background-color: #000;
+		gap: 10px;
+	}
+}
+.navbar-submenu__link {
+	font-size: 0.85em;
+}
 /* ============icon menu ================= */
 .icon-menu {
   display: none;
 
-  @media (max-width: 991.98px) {
+  @media only screen and (max-width: 991.98px) {
     display: block;
     position: relative;
     width: 30px;
