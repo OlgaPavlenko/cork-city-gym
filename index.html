@@ -81,7 +81,7 @@
 							journey.
 							Join us and rewrite your story, sculpting the hero within.
 						</p>
-						<button type="button" class="hero__btn btn">Get Started</button>
+						<button type="button" class="hero__btn btn" onclick="openPopup()">Get Started</button>
 					</div>
 				</div>
 			</div>
@@ -619,6 +619,42 @@
 			</div>
 		</section>
 
+		<div class="modal">
+			<h2 class="modal__title">Track Your Progress & More!</h2>
+			<button class="modal__close" onclick="closePopup()">X</button>
+			<p>All fields are required</p>
+			<div class="modal__content">
+				<form class="modal__form" id="modal-form" method="post">
+						<fieldset class="modal__block">
+							<label class="modal__label" for="firstname">First Name</label><br>
+							<input class="modal__input required" id="firstname" type="text" name="name">
+						</fieldset>
+						<fieldset class="modal__block">
+							<label class="modal__label" for="lastname">Last Name</label><br>
+							<input class="modal__input required" id="lastname" type="text" name="name">
+						</fieldset>
+						<fieldset class="modal__block">
+							<label class="modal__label" for="account-phone">Phone Number</label><br>
+							<input class="modal__input required" id="account-phone" type="text" name="phone">
+						</fieldset>
+						<fieldset class="modal__block">
+							<label class="modal__label" for="account-email">Email</label><br>
+							<input class="modal__input required" id="account-email" type="text" name="email">
+						</fieldset>
+						<fieldset class="modal__block">
+							<label class="modal__label" for="password">Password</label><br>
+							<input class="modal__input required" id="password" type="password" name="password">
+							<a href="#" id="pass-up-show" class="password-control"></a>
+						</fieldset>
+						<input id="agree" type="checkbox" name="agree">
+						<label  class="modal__label" for="agree">Send me email notifications for new program launches, website or store updates (optional)</label><br>
+					<button id="submitModalBtn" class="modal__btn btn" type="submit" disabled>Create Account</button>
+				</form>
+				<div class="modal__image">
+					<img src="images/account.jpg" alt="">
+				</div>
+			</div>
+		</div>
 
 	</main>
 	<footer class="footer">
