@@ -18,79 +18,77 @@
 const forms = document.getElementsByTagName("form");
 
 // add and remove placeholders
-for(let form of forms) {
-	form.addEventListener("focusin", (e) => {
-		if (e.target.tagName === "INPUT") {
-			e.target.placeholder = "";
-		}
-	});
-	form.addEventListener("focusout", (e) => {
-		if (e.target.tagName === "INPUT") {
-			e.target.dataset.placeholder ? e.target.placeholder = e.target.dataset.placeholder : "";
-		}
-	});
-//===========tracking changes in the form fields=========
+for (let form of forms) {
+  form.addEventListener("focusin", (e) => {
+    if (e.target.tagName === "INPUT") {
+      e.target.placeholder = "";
+    }
+  });
+  form.addEventListener("focusout", (e) => {
+    if (e.target.tagName === "INPUT") {
+      e.target.dataset.placeholder
+        ? (e.target.placeholder = e.target.dataset.placeholder)
+        : "";
+    }
+  });
+  //===========tracking changes in the form fields=========
 
-	form.addEventListener('change', (e) => {
-		const form = e.target.closest('form');
-		const buttonSubmit = form.querySelector("[type='submit']");
+  form.addEventListener("change", (e) => {
+    const form = e.target.closest("form");
+    const buttonSubmit = form.querySelector("[type='submit']");
 
-		formObserver(form, e.target, buttonSubmit)
-		form.addEventListener("submit", (e) => {
-			const body = Object.fromEntries(new FormData(e.target).entries());
-			e.preventDefault();
-			buttonSubmit.setAttribute("disabled", "true");
-			console.log(form.id)
-			if(form.id == 'form') {
-				formSubmit(body, form);
-			}
-			if(form.id == 'modal-form') {
-				closePopup();
-			}
-		});
-	})
+    formObserver(form, e.target, buttonSubmit);
+    form.addEventListener("submit", (e) => {
+      const body = Object.fromEntries(new FormData(e.target).entries());
+      e.preventDefault();
+      buttonSubmit.setAttribute("disabled", "true");
+      console.log(form.id);
+      if (form.id == "form") {
+        formSubmit(body, form);
+      }
+      if (form.id == "modal-form") {
+        closePopup();
+      }
+    });
+  });
 }
 //============= validation form ========================
 
 function formObserver(form, target, button) {
-		if(target.tagName === "INPUT" && target.name !== 'agree'){
-			removeErrorMessage(target);
-			if (target.name == "name" && target.value.trim() == "") {
-				addErrorMessage(target)
-			}
-			if (target.name == "password" && target.value.trim() == "") {
-				addErrorMessage(target)
-			}
-			if (target.name == "email") {
-				inputValidation(
-					emailValidation,
-					target,
-					"Input valid email"
-				);
-			}
-			if (target.name == "phone") {
-				inputValidation(
-					phoneValidation,
-					target,
-					"Input phone number like +353XX XXX XXXX"
-				);
-			}
-		}
-		// ====check if form fields contain errors=======
-		const requireFields = form.querySelectorAll(".required");
-		let error = 0;
-		let errorMessage = null;
-		for (let i = 0; i < requireFields.length; i++) {
-			let input = requireFields[i];
-			if (input.value == "") {
-				error++;
-			}
-			errorMessage = input.parentElement.querySelector(".form-error");
-			if (errorMessage) error++;
-		}
-		if (!error) {
-			button.removeAttribute("disabled");
-		}
+  if (target.tagName === "INPUT" && target.name !== "agree") {
+    removeErrorMessage(target);
+    if (target.name == "name" && target.value.trim() == "") {
+      addErrorMessage(target);
+    }
+    if (target.name == "password" && target.value.trim() == "") {
+      addErrorMessage(target);
+    }
+    if (target.name == "email") {
+      inputValidation(emailValidation, target, "Input valid email");
+    }
+    if (target.name == "phone") {
+      inputValidation(
+        phoneValidation,
+        target,
+        "Input phone number like +353XX XXX XXXX"
+      );
+    }
+  }
+  // ====check if form fields contain errors=======
+  const requireFields = form.querySelectorAll(".required");
+  let error = 0;
+  let errorMessage = null;
+  for (let i = 0; i < requireFields.length; i++) {
+    let input = requireFields[i];
+    if (input.value == "") {
+      error++;
+    }
+    errorMessage = input.parentElement.querySelector(".form-error");
+    if (errorMessage) error++;
+  }
+  if (!error) {
+    button.removeAttribute("disabled");
+  }
 }
 // check input field values and show error messages
 function inputValidation(validator, input, message) {
@@ -104,10 +102,7 @@ function inputValidation(validator, input, message) {
   return false;
 }
 
-function addErrorMessage(
-  input,
-  message = "Fill out required fields"
-) {
+function addErrorMessage(input, message = "Fill out required fields") {
   input.classList.add("error");
   input.parentElement.insertAdjacentHTML(
     "beforeend",
@@ -251,50 +246,54 @@ calculatorForm.addEventListener("submit", (e) => {
   bmi = Math.round((weight / Math.pow(height, 2)) * 10) / 10;
 
   if (bmi <= 18.4) {
+    switchToReset();
     result.innerText = `Your Body Mass Index is ${bmi}. This is considered as underweight`;
   } else if (bmi >= 18.5 && bmi <= 24.9) {
+    switchToReset();
     result.innerText = `Your Body Mass Index is ${bmi}. This is considered as normal`;
   } else if (bmi >= 25 && bmi <= 30) {
+    switchToReset();
     result.innerText = `Your Body Mass Index is ${bmi}. This is considered as overweight`;
   } else if (bmi >= 30.1) {
+    switchToReset();
     result.innerText = `Your Body Mass Index is ${bmi}. This is considered as obese`;
   }
 });
 // =======popup======================================
 const modal = document.querySelector(".modal");
 function openPopup() {
-	modal.classList.add("open");
-	document.body.classList.add("modal-lock");
+  modal.classList.add("open");
+  document.body.classList.add("modal-lock");
 }
 function closePopup() {
-	const form = document.getElementById("modal-form");
-	form.reset();
-	const errors = form.querySelectorAll(".error");
-	for(let input of errors) {
-		removeErrorMessage(input)
-	}
+  const form = document.getElementById("modal-form");
+  form.reset();
+  const errors = form.querySelectorAll(".error");
+  for (let input of errors) {
+    removeErrorMessage(input);
+  }
 
-	modal.classList.remove("open");
-	document.body.classList.remove("modal-lock");
+  modal.classList.remove("open");
+  document.body.classList.remove("modal-lock");
 }
 //======= toggle password icon =========================================
-const iconIn = document.getElementById('pass-in-show');
-const iconUp = document.getElementById('pass-up-show');
+const iconIn = document.getElementById("pass-in-show");
+const iconUp = document.getElementById("pass-up-show");
 if (iconIn) {
-	iconIn.addEventListener('click', showPassword)
+  iconIn.addEventListener("click", showPassword);
 }
 if (iconUp) {
-	iconUp.addEventListener('click', showPassword)
+  iconUp.addEventListener("click", showPassword);
 }
 function showPassword(e) {
-	e.preventDefault()
-	let target = e.target;
-	let input = target.parentNode.querySelector('input')
-	if (input.getAttribute('type') == 'password') {
-		target.classList.add('view-pass');
-		input.setAttribute('type', 'text');
-	} else {
-		target.classList.remove('view-pass');
-		input.setAttribute('type', 'password');
-	}
+  e.preventDefault();
+  let target = e.target;
+  let input = target.parentNode.querySelector("input");
+  if (input.getAttribute("type") == "password") {
+    target.classList.add("view-pass");
+    input.setAttribute("type", "text");
+  } else {
+    target.classList.remove("view-pass");
+    input.setAttribute("type", "password");
+  }
 }

@@ -111,7 +111,7 @@
 
 		<section class="team" id="team">
 			<div class="container">
-				<h2 class="team__title title">///Team</h2>
+				<h2 class="team__title title">/// Team</h2>
 				<ul class="team__list">
 					<li class="team__item item">
 						<div class="team__scene">
@@ -498,25 +498,26 @@
 					<h3>Calculate your Body Mass Index</h3>
 					<div class="calculator__wrap">
 						<div class="calculator__weight">
-							<input type="number" class="weight__value value" id="weight" name="weight" max="500">
+							<input type="number" class="weight__value value" id="weight" name="weight" max="500"
+								placeholder="0">
 							<select class="calculator__sel weight" name="weightOption">
 								<option value="kg" id="kg">kg</option>
 								<option value="lbs" id="lbs">lbs</option>
 							</select>
 						</div>
 						<div class="calculator__height">
-							<input type="number" class="height__value value" id="height" name="height" max="300">
+							<input type="number" class="height__value value" id="height" name="height" max="300"
+								placeholder="0">
 							<select class="calculator__sel height" name="heightOption">
 								<option value="cm" id="cm">cm</option>
 								<option value="in" id="in">in</option>
 							</select>
 						</div>
 					</div>
-					<button type="submit" onclick="switchToReset()" class="calculator__button btn"
-						id="submitButton">calculate
+					<button type="submit" class="calculator__button btn" id="submitButton">Calculate
 						BMI</button>
 					<button type="reset" onclick="switchToSubmit()" class="calculator__button btn reset"
-						id="resetButton">reset</button>
+						id="resetButton">Reset</button>
 					<p class="calculator__result" id="result"></p>
 				</form>
 			</div>
@@ -625,29 +626,30 @@
 			<p>All fields are required</p>
 			<div class="modal__content">
 				<form class="modal__form" id="modal-form" method="post">
-						<fieldset class="modal__block">
-							<label class="modal__label" for="firstname">First Name</label><br>
-							<input class="modal__input required" id="firstname" type="text" name="name">
-						</fieldset>
-						<fieldset class="modal__block">
-							<label class="modal__label" for="lastname">Last Name</label><br>
-							<input class="modal__input required" id="lastname" type="text" name="name">
-						</fieldset>
-						<fieldset class="modal__block">
-							<label class="modal__label" for="account-phone">Phone Number</label><br>
-							<input class="modal__input required" id="account-phone" type="text" name="phone">
-						</fieldset>
-						<fieldset class="modal__block">
-							<label class="modal__label" for="account-email">Email</label><br>
-							<input class="modal__input required" id="account-email" type="text" name="email">
-						</fieldset>
-						<fieldset class="modal__block">
-							<label class="modal__label" for="password">Password</label><br>
-							<input class="modal__input required" id="password" type="password" name="password">
-							<a href="#" id="pass-up-show" class="password-control"></a>
-						</fieldset>
-						<input id="agree" type="checkbox" name="agree">
-						<label  class="modal__label" for="agree">Send me email notifications for new program launches, website or store updates (optional)</label><br>
+					<fieldset class="modal__block">
+						<label class="modal__label" for="firstname">First Name</label><br>
+						<input class="modal__input required" id="firstname" type="text" name="name">
+					</fieldset>
+					<fieldset class="modal__block">
+						<label class="modal__label" for="lastname">Last Name</label><br>
+						<input class="modal__input required" id="lastname" type="text" name="name">
+					</fieldset>
+					<fieldset class="modal__block">
+						<label class="modal__label" for="account-phone">Phone Number</label><br>
+						<input class="modal__input required" id="account-phone" type="text" name="phone">
+					</fieldset>
+					<fieldset class="modal__block">
+						<label class="modal__label" for="account-email">Email</label><br>
+						<input class="modal__input required" id="account-email" type="text" name="email">
+					</fieldset>
+					<fieldset class="modal__block">
+						<label class="modal__label" for="password">Password</label><br>
+						<input class="modal__input required" id="password" type="password" name="password">
+						<a href="#" id="pass-up-show" class="password-control"></a>
+					</fieldset>
+					<input id="agree" type="checkbox" name="agree">
+					<label class="modal__label" for="agree">Send me email notifications for new program launches,
+						website or store updates (optional)</label><br>
 					<button id="submitModalBtn" class="modal__btn btn" type="submit" disabled>Create Account</button>
 				</form>
 				<div class="modal__image">

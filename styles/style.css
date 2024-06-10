@@ -28,10 +28,10 @@ body {
 }
 
 body.lock {
-	overflow: hidden;
+  overflow: hidden;
 }
 body.modal-lock {
-	overflow: hidden;
+  overflow: hidden;
 }
 
 a {
@@ -55,14 +55,13 @@ textarea {
   font-family: inherit;
   font-size: inherit;
   line-height: inherit;
-	border-width: 1px;
+  border-width: 1px;
 }
 
 input:focus-visible,
 textarea:focus-visible {
   border: 1px solid #fff;
-	outline: none;
-
+  outline: none;
 }
 
 button {
@@ -108,7 +107,7 @@ address {
 
 /* ============common elements============================= */
 main {
-	position: relative;
+  position: relative;
 }
 .container {
   max-width: 1340px;
@@ -128,7 +127,7 @@ main {
 .btn {
   background-color: var(--main-color);
   padding: 14px 46px;
-	min-width: 210px;
+  min-width: 210px;
   font-weight: 600;
   font-size: 1.25rem;
   /* 20/16 */
@@ -337,42 +336,42 @@ main {
   width: 100%;
 }
 .navbar-submenu {
-	position: relative;
-	cursor: pointer;
-	@media only screen and (max-width: 991.98px) {
-		font-size: 1.5rem;
-		font-weight: 700;
-	}
+  position: relative;
+  cursor: pointer;
+  @media only screen and (max-width: 991.98px) {
+    font-size: 1.5rem;
+    font-weight: 700;
+  }
 }
 .navbar-submenu:hover {
-	>.navbar-submenu__list {
-		opacity: 1;
-		visibility: visible;
-		transform: translateY(0);
-	}
+  > .navbar-submenu__list {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
 }
-.navbar-submenu__list { 
-	padding-left: 20px;
-	padding-top: 20px;
-	display: flex;
-	flex-direction: column;
-	gap: 20px;
-	transition:  0.5s;
-	@media only screen and (min-width: 991.98px) {
-		position: absolute;
-		top: 30px;
-		left: 0;
-		width: 150px;
-		padding: 5px;
-		opacity: 0;
-		visibility: hidden;
-		transform: translateY(-100%);
-		background-color: #000;
-		gap: 10px;
-	}
+.navbar-submenu__list {
+  padding-left: 20px;
+  padding-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  transition: 0.5s;
+  @media only screen and (min-width: 991.98px) {
+    position: absolute;
+    top: 30px;
+    left: 0;
+    width: 150px;
+    padding: 5px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-100%);
+    background-color: #000;
+    gap: 10px;
+  }
 }
 .navbar-submenu__link {
-	font-size: 0.85em;
+  font-size: 0.85em;
 }
 /* ============icon menu ================= */
 .icon-menu {
@@ -493,8 +492,8 @@ main {
 }
 
 .hero__content {
-	position: relative;
-	z-index: 2;
+  position: relative;
+  z-index: 2;
   padding: 20px 0;
   max-width: 60%;
   @media only screen and (max-width: 767.98px) {
@@ -564,6 +563,7 @@ main {
   background-attachment: fixed;
 
   @media only screen and (max-width: 767.98px) {
+    height: 120vh;
     background-attachment: unset;
   }
 }
@@ -1003,17 +1003,6 @@ main {
   object-fit: cover;
 }
 
-.item__header {
-  width: 100%;
-  text-align: center;
-  background: radial-gradient(
-    circle,
-    rgba(255, 255, 255, 0) 0%,
-    rgba(0, 0, 0, 0.9) 70%,
-    rgba(0, 0, 0, 1) 100%
-  );
-}
-
 .content__item:hover .item__overlay,
 .content__item:focus .item__overlay {
   transform: translateY(0);
@@ -1056,9 +1045,10 @@ main {
 }
 
 .item__header {
+  width: 100%;
+  text-align: center;
   position: absolute;
   bottom: 0;
-  left: 15;
   padding: 0 10px;
   font-size: 1.1rem;
   min-height: 1.9rem;
@@ -1066,6 +1056,12 @@ main {
   border-left: 1px solid var(--main-color);
   border-right: 1px solid var(--main-color);
   border-radius: 5px;
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(0, 0, 0, 0.9) 70%,
+    rgba(0, 0, 0, 1) 100%
+  );
 }
 
 .item__svg {
@@ -1094,9 +1090,9 @@ main {
   flex: 1 1 50%;
   padding: 0 15px;
   position: relative;
-	& fieldset {
-		height: 120px;
-	}
+  & fieldset {
+    height: 120px;
+  }
 }
 
 .contacts__form > p {
@@ -1367,6 +1363,10 @@ input::placeholder {
   padding-left: 7px;
 }
 
+.value::placeholder {
+  color: #000;
+}
+
 .calculator__sel {
   border: 1px solid var(--main-color);
   border-radius: 5px;
@@ -1486,68 +1486,68 @@ input::placeholder {
 }
 /* ============popup======================= */
 .modal {
-	padding: 30px 150px;
-	z-index: 100;
-	background-color: #9e9e9e;
-	color: #000;
-	position: fixed;
-	width: 100%;
-	top: 0;
-	bottom: 0;
-	transition: 0.5s ease-in-out;
-	transform: scale(0);
-	overflow: scroll;
-	&>p {
-		font-size: 1rem;
-		color: var(--main-color);
-	}
-	@media only screen and (max-width: 991.98px){
-		padding: 20px 80px;
-	}
-	@media only screen and (max-width: 767.98px){
-		padding: 50px 20px 20px;
-		display: block;
-	}
+  padding: 30px 150px;
+  z-index: 100;
+  background-color: #9e9e9e;
+  color: #000;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  bottom: 0;
+  transition: 0.5s ease-in-out;
+  transform: scale(0);
+  overflow: scroll;
+  & > p {
+    font-size: 1rem;
+    color: var(--main-color);
+  }
+  @media only screen and (max-width: 991.98px) {
+    padding: 20px 80px;
+  }
+  @media only screen and (max-width: 767.98px) {
+    padding: 50px 20px 20px;
+    display: block;
+  }
 }
 .modal.open {
-	transform: scale(1);
+  transform: scale(1);
 }
 .modal__title {
-	font-size: clamp(1.5rem, 4vw, 4rem);
+  font-size: clamp(1.5rem, 4vw, 4rem);
 }
 .modal__content {
-	display: flex;
-	gap: 30px;
-	justify-content: space-between;
-	@media only screen and (max-width: 767.98px){
-		display: block;
-	}
+  display: flex;
+  gap: 30px;
+  justify-content: space-between;
+  @media only screen and (max-width: 767.98px) {
+    display: block;
+  }
 }
 .modal__form {
-	flex: 0 0 50%;
-	font-size: 1rem;
+  flex: 0 0 50%;
+  font-size: 1rem;
 }
 .modal__input {
-	width: 100%;
-	border-radius: 5px;
-	padding: 3px 10px;
-	line-height: 1.5;
-	&:focus-visible {
-		border: 1px solid var(--main-color);
-	}
+  width: 100%;
+  border-radius: 5px;
+  padding: 3px 10px;
+  line-height: 1.5;
+  &:focus-visible {
+    border: 1px solid var(--main-color);
+  }
 }
 input#agree {
-	position: absolute;
+  position: absolute;
   z-index: -1;
   opacity: 0;
 }
-input#agree+label {
-	display: inline-flex;
+input#agree + label {
+  display: inline-flex;
   align-items: center;
   user-select: none;
 }
-input#agree+label::before {
-	content: '';
+input#agree + label::before {
+  content: "";
   display: inline-block;
   width: 1.2em;
   height: 1.2em;
@@ -1560,52 +1560,52 @@ input#agree+label::before {
   background-position: center center;
   background-size: 70% 70%;
 }
-input#agree:checked+label::before {
+input#agree:checked + label::before {
   background-color: #000;
-	background-image: url(../images/check.svg);
+  background-image: url(../images/check.svg);
 }
 .modal__btn {
-	width: 100%;
-	margin-top: 20px;
+  width: 100%;
+  margin-top: 20px;
 }
 .modal__image {
-	flex: 0 0 50%;
-	overflow: hidden;
-	position: relative;
-	aspect-ratio: 1/0.8;
-	border-radius: 20px;
-	& img {
-		position: absolute;
-		width: 100%;
-		height: 100%;
-		top: 0;
-		left: 0;
-		object-fit: cover;
-	}
-	@media only screen and (max-width: 767.98px){
-		display: none;
-	}
+  flex: 0 0 50%;
+  overflow: hidden;
+  position: relative;
+  aspect-ratio: 1/0.8;
+  border-radius: 20px;
+  & img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+  }
+  @media only screen and (max-width: 767.98px) {
+    display: none;
+  }
 }
 .modal__block {
-	position: relative;
-	height: 80px;
+  position: relative;
+  height: 80px;
 }
 .modal__close {
-	position: absolute;
-	top: 20px;
-	right: 20px;
-	width: 30px;
-	height: 30px;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 30px;
+  height: 30px;
 }
 .password-control {
-	position: absolute;
-	right: 15px;
-	top: 40px;
-	width: 20px;
-	height: 14px;
-	transform: translateY(-50%);
-	background: url(../images/show.svg) center / cover no-repeat;
-	&.view-pass {
-		background: url(../images/hide.svg) 0 0 no-repeat;
-	}
+  position: absolute;
+  right: 15px;
+  top: 40px;
+  width: 20px;
+  height: 14px;
+  transform: translateY(-50%);
+  background: url(../images/show.svg) center / cover no-repeat;
+  &.view-pass {
+    background: url(../images/hide.svg) 0 0 no-repeat;
+  }
 }
