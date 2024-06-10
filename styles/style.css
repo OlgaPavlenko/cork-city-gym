@@ -560,11 +560,9 @@ main {
   align-items: center;
   background: url(../images/mission.jpg) center center / cover no-repeat;
   height: 80vh;
-  background-attachment: fixed;
 
-  @media only screen and (max-width: 767.98px) {
-    height: 120vh;
-    background-attachment: unset;
+  @media only screen and (min-width: 767.98px) {
+    background-attachment: fixed;
   }
 }
 
