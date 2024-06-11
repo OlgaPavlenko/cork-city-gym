@@ -8,7 +8,6 @@
 
 /* ========== reset default styles================ */
 * {
-  scroll-behavior: smooth;
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -17,6 +16,7 @@
 html,
 body {
   min-width: 360px;
+	scroll-behavior: smooth;
 }
 
 body {
@@ -316,10 +316,6 @@ main {
   }
 }
 
-.navbar__link:hover {
-  color: var(--main-color);
-}
-
 .navbar__link::after {
   content: "";
   position: absolute;
@@ -332,9 +328,6 @@ main {
   transform: translateX(-50%);
 }
 
-.navbar__link:hover::after {
-  width: 100%;
-}
 .navbar-submenu {
   position: relative;
   cursor: pointer;
@@ -343,13 +336,24 @@ main {
     font-weight: 700;
   }
 }
-.navbar-submenu:hover {
-  > .navbar-submenu__list {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-  }
+@media (hover: hover) {
+	.navbar__link:hover {
+		color: var(--main-color);
+	}
+	.navbar__link:hover::after {
+		width: 100%;
+	}
 }
+@media only screen and (min-width: 991.98px) {
+	.navbar-submenu:hover {
+		>.navbar-submenu__list {
+			opacity: 1;
+			visibility: visible;
+			transform: translateY(0);
+		}
+	}
+}
+
 .navbar-submenu__list {
   padding-left: 20px;
   padding-top: 20px;
@@ -425,7 +429,7 @@ main {
     top: 0;
     right: -100%;
     width: 50%;
-    height: 100vh;
+    min-height: 100vh;
     background-color: #000;
     overflow: auto;
     transition: 0.5s ease;
@@ -470,7 +474,6 @@ main {
 
 .hero__inner {
   position: relative;
-  background: url(../images/bg3.jpg) top center / cover no-repeat;
   &::after {
     content: "";
     position: absolute;
@@ -489,6 +492,21 @@ main {
   @media only screen and (max-width: 767.98px) {
     margin: 0 -15px;
   }
+}
+.hero__image {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	& img {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		object-fit: contain ;
+	}
 }
 
 .hero__content {
