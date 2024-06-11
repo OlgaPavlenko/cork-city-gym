@@ -429,7 +429,7 @@ main {
     top: 0;
     right: -100%;
     width: 50%;
-    height: 100vh;
+    min-height: 100vh;
     background-color: #000;
     overflow: auto;
     transition: 0.5s ease;
