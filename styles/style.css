@@ -331,6 +331,11 @@ main {
 .navbar-submenu {
   position: relative;
   cursor: pointer;
+	&:hover {
+		>span {
+			color: var(--main-color);
+		}
+	}
   @media only screen and (max-width: 991.98px) {
     font-size: 1.5rem;
     font-weight: 700;
