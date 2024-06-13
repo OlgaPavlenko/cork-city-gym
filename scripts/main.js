@@ -42,7 +42,6 @@ for (let form of forms) {
       const body = Object.fromEntries(new FormData(e.target).entries());
       e.preventDefault();
       buttonSubmit.setAttribute("disabled", "true");
-      console.log(form.id);
       if (form.id == "form") {
         formSubmit(body, form);
       }
@@ -88,7 +87,9 @@ function formObserver(form, target, button) {
   }
   if (!error) {
     button.removeAttribute("disabled");
-  }
+  }else{
+		button.setAttribute("disabled","true")
+	}
 }
 // check input field values and show error messages
 function inputValidation(validator, input, message) {
