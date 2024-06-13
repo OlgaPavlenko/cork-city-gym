@@ -34,7 +34,7 @@ for (let form of forms) {
   //===========tracking changes in the form fields=========
 	const buttonSubmit = form.querySelector("[type='submit']");
 
-  form.addEventListener("change", (e) => {
+  form.addEventListener("input", (e) => {
     const form = e.target.closest("form");
     formObserver(form, e.target, buttonSubmit);
   });
@@ -122,7 +122,7 @@ function emailValidation(input) {
   return /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,8})+$/.test(input.value);
 }
 function phoneValidation(input) {
-  return /^((0|\+)[\- ]?)?(\(?\d{3,5}\)?[\- ]?)?[\d\- ]{5,10}$/.test(
+  return /(\s*)?(\+)?([- _():=+]?\d[- _():=+]?){12,14}(\s*)?/.test(
     input.value
   );
 }
