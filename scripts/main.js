@@ -32,24 +32,26 @@ for (let form of forms) {
     }
   });
   //===========tracking changes in the form fields=========
+	const buttonSubmit = form.querySelector("[type='submit']");
 
-  form.addEventListener("change", (e) => {
+  form.addEventListener("input", (e) => {
     const form = e.target.closest("form");
-    const buttonSubmit = form.querySelector("[type='submit']");
-
     formObserver(form, e.target, buttonSubmit);
-    form.addEventListener("submit", (e) => {
-      const body = Object.fromEntries(new FormData(e.target).entries());
-      e.preventDefault();
-      buttonSubmit.setAttribute("disabled", "true");
-      if (form.id == "form") {
-        formSubmit(body, form);
-      }
-      if (form.id == "modal-form") {
-        closePopup();
-      }
-    });
   });
+
+	form.addEventListener("submit", (e) => {
+		const body = Object.fromEntries(new FormData(e.target).entries());
+		e.preventDefault();
+		buttonSubmit.setAttribute("disabled", "true");
+
+		if (form.id == "form") {
+			alert( `Hi ${body.name}. Thank you for the message`)
+		}
+		if (form.id == "modal-form") {
+			closePopup();
+			alert( "Your data has been sent successfully")
+		}
+	});
 }
 //============= validation form ========================
 
@@ -120,29 +122,9 @@ function emailValidation(input) {
   return /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,8})+$/.test(input.value);
 }
 function phoneValidation(input) {
-  return /^((0|\+)[\- ]?)?(\(?\d{3,5}\)?[\- ]?)?[\d\- ]{5,10}$/.test(
+  return /(\s*)?(\+)?([- _():=+]?\d[- _():=+]?){12,14}(\s*)?/.test(
     input.value
   );
-}
-// ======Imitation of sending the form================
-
-async function formSubmit(body, form) {
-  const value = document.getElementById("name").value.trim();
-  let response = await fetch("/index.html", {
-    method: "POST",
-    body: body,
-  });
-  form.reset();
-  form.insertAdjacentHTML(
-    "beforeend",
-    `<div class="form-submit">
-			<p>Hi ${value} </p>
-			<p>Your message is submited</p>
-		</div>`
-  );
-  setTimeout(() => {
-    form.removeChild(form.querySelector(".form-submit"));
-  }, 3000);
 }
 
 // ======================init swiper=================
