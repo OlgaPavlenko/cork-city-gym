@@ -1491,10 +1491,6 @@ input::placeholder {
   transition: 0.5s ease-in-out;
   transform: scale(0);
   overflow: scroll;
-  & > p {
-    font-size: 1rem;
-    color: var(--main-color);
-  }
   @media only screen and (max-width: 991.98px) {
     padding: 20px 80px;
   }
@@ -1520,6 +1516,9 @@ input::placeholder {
 .modal__form {
   flex: 0 0 50%;
   font-size: 1rem;
+	& span {
+    color: var(--main-color);
+	}
 }
 .modal__input {
   width: 100%;
@@ -1530,21 +1529,34 @@ input::placeholder {
     border: 1px solid var(--main-color);
   }
 }
-input#agree {
+.modal__label>span {
+	color: var(--main-color);
+}
+#account-age {
+	width: 100px;
+}
+#age {
+	margin-right: 50px;
+}
+#gender {
+	& .modal__label {
+		margin-right: 20px;
+	}
+}
+
+input#agree, input.gender {
   position: absolute;
   z-index: -1;
   opacity: 0;
 }
-input#agree + label {
+input#agree + label,  input.gender + label {
   display: inline-flex;
   align-items: center;
   user-select: none;
 }
-input#agree + label::before {
+input#agree + label::before, input.gender + label::before {
   content: "";
   display: inline-block;
-  width: 1.2em;
-  height: 1.2em;
   flex-shrink: 0;
   flex-grow: 0;
   border: 1px solid var(--main-color);
@@ -1553,8 +1565,21 @@ input#agree + label::before {
   background-repeat: no-repeat;
   background-position: center center;
   background-size: 70% 70%;
+	transition: 0.5s;
 }
-input#agree:checked + label::before {
+input#agree + label::before {
+	width: 1.2em;
+  height: 1.2em;
+}
+input.gender + label::before {
+	width: 0.8em;
+  height: 0.8em;
+
+}
+input#agree:hover + label::before, input.gender:hover + label::before {
+	background-color: #000;
+}
+input#agree:checked + label::before, input.gender:checked + label::before {
   background-color: #000;
   background-image: url(../images/check.svg);
 }

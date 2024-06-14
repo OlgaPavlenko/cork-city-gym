@@ -626,33 +626,46 @@
 		<div class="modal">
 			<h2 class="modal__title">Track Your Progress & More!</h2>
 			<button class="modal__close" onclick="closePopup()">X</button>
-			<p>All fields are required</p>
 			<div class="modal__content">
 				<form class="modal__form" id="modal-form" method="post">
 					<fieldset class="modal__block">
-						<label class="modal__label" for="firstname">First Name</label><br>
+						<label class="modal__label" for="firstname">First Name <span>&nbsp;*</span></label><br>
 						<input class="modal__input required" id="firstname" type="text" name="name">
 					</fieldset>
 					<fieldset class="modal__block">
-						<label class="modal__label" for="lastname">Last Name</label><br>
+						<label class="modal__label" for="lastname">Last Name<span>&nbsp;*</span></label><br>
 						<input class="modal__input required" id="lastname" type="text" name="name">
 					</fieldset>
 					<fieldset class="modal__block">
-						<label class="modal__label" for="account-phone">Phone Number</label><br>
+						<label class="modal__label" for="account-phone">Phone Number<span>&nbsp;*</span></label><br>
 						<input class="modal__input required" id="account-phone" type="text" name="phone">
 					</fieldset>
 					<fieldset class="modal__block">
-						<label class="modal__label" for="account-email">Email</label><br>
+						<label class="modal__label" for="account-email">Email<span>&nbsp;*</span></label><br>
 						<input class="modal__input required" id="account-email" type="text" name="email">
 					</fieldset>
+					<fieldset id="age" class="modal__block" style="display: inline-block;">
+						<label class="modal__label" for="account-age">Age (16-100 years)</label><br>
+						<input class="modal__input" id="account-age" type="number" min="16" max="100" name="age" onkeyup=checkAge(this)>
+					</fieldset>
+					<fieldset class="modal__block" id="gender" style="display: inline-block;">
+						<legend>Your gender</legend>
+						<input class="gender" id="account-male" type="radio" name="gender">
+						<label class="modal__label" for="account-male">Male</label>
+						<input class="gender" id="account-female" type="radio" name="gender">
+						<label class="modal__label" for="account-female">Female</label>
+						<input class="gender" id="account-other" type="radio" name="gender">
+						<label class="modal__label" for="account-other">Other</label>
+					</fieldset>
 					<fieldset class="modal__block">
-						<label class="modal__label" for="password">Password</label><br>
-						<input class="modal__input required" id="password" type="password" name="password">
+						<label class="modal__label" for="password" >Password<span>&nbsp;*</span></label><br>
+						<input class="modal__input required" id="password" type="password" name="password" minlength="5" maxlength="20">
 						<a href="#" id="pass-up-show" class="password-control" aria-label="show/hide password"></a>
 					</fieldset>
 					<input id="agree" type="checkbox" name="agree">
 					<label class="modal__label" for="agree">Send me email notifications for new program launches,
 						website or store updates (optional)</label><br>
+						<span>* required fields</span>
 					<button id="submitModalBtn" class="modal__btn btn" type="submit" disabled>Create Account</button>
 				</form>
 				<div class="modal__image">
