@@ -126,8 +126,16 @@ function phoneValidation(input) {
     input.value
   );
 }
-
-// ======================init swiper=================
+function checkAge(e){
+  if(e.value != ""){
+    if(parseInt(e.value) < parseInt(e.min)){
+      e.value = e.min;
+    }
+    if(parseInt(e.value) > parseInt(e.max)){
+      e.value = e.max;
+    }
+  }
+}// ======================init swiper=================
 const swiperThumb = new Swiper(".classes__slider-thumbs", {
   // Optional parameters
   direction: "vertical",
