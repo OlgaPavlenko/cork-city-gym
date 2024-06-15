@@ -255,6 +255,12 @@ const modal = document.querySelector(".modal");
 function openPopup() {
   modal.classList.add("open");
   document.body.classList.add("modal-lock");
+	if(modal.classList.contains('open')) {
+		document.addEventListener('keyup',  keyHandler);
+	}else{
+		document.removeEventListener('keyup',  keyHandler);
+	}
+
 }
 function closePopup() {
   const form = document.getElementById("modal-form");
@@ -287,4 +293,10 @@ function showPassword(e) {
     target.classList.remove("view-pass");
     input.setAttribute("type", "password");
   }
+}
+function keyHandler(e) {
+	if (e.key == 'Escape') {
+		closePopup()
+		document.removeEventListener('keyup',  keyHandler);
+	}
 }
