@@ -131,9 +131,6 @@ function checkAge(e){
     if(parseInt(e.value) < parseInt(e.min)){
       e.value = e.min;
     }
-    if(parseInt(e.value) > parseInt(e.max)){
-      e.value = e.max;
-    }
   }
 }// ======================init swiper=================
 const swiperThumb = new Swiper(".classes__slider-thumbs", {
@@ -294,6 +291,7 @@ function showPassword(e) {
     input.setAttribute("type", "password");
   }
 }
+
 function keyHandler(e) {
 	if (e.key == 'Escape') {
 		closePopup()
