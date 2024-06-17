@@ -15,7 +15,7 @@
   }
 })();
 //============= form ========================
-const forms = document.getElementsByTagName("form");
+const forms = document.querySelectorAll("[name='form']");
 
 // add and remove placeholders
 for (let form of forms) {
