@@ -501,6 +501,7 @@
 					<h3>Calculate your Body Mass Index</h3>
 					<div class="calculator__wrap">
 						<div class="calculator__weight">
+							<label class="calculator__label" for="weight">Enter your weight</label>
 							<input type="number" class="weight__value value" id="weight" name="weight" max="500"
 								placeholder="0">
 							<select class="calculator__sel weight" name="weightOption">
@@ -509,6 +510,7 @@
 							</select>
 						</div>
 						<div class="calculator__height">
+							<label class="calculator__label" for="height">Enter your height</label>
 							<input type="number" class="height__value value" id="height" name="height" max="300"
 								placeholder="0">
 							<select class="calculator__sel height" name="heightOption">
@@ -517,9 +519,10 @@
 							</select>
 						</div>
 					</div>
-					<button type="submit" class="calculator__button btn" id="submitButton">Calculate
+					<button type="submit" onclick="onSubmitButton()" class="calculator__button btn"
+						id="submitButton">Calculate
 						BMI</button>
-					<button type="reset" onclick="switchToSubmit()" class="calculator__button btn reset"
+					<button onclick="onResetButton()" class="calculator__button btn reset"
 						id="resetButton">Reset</button>
 					<p class="calculator__result" id="result"></p>
 				</form>
@@ -646,7 +649,8 @@
 					</fieldset>
 					<fieldset id="age" class="modal__block" style="display: inline-block;">
 						<label class="modal__label" for="account-age">Age (from 16 years old)</label><br>
-						<input class="modal__input" id="account-age" type="number" min="16" name="age" onblur=checkAge(this)>
+						<input class="modal__input" id="account-age" type="number" min="16" name="age"
+							onblur=checkAge(this)>
 					</fieldset>
 					<fieldset class="modal__block" id="gender" style="display: inline-block;">
 						<legend>Your gender</legend>
@@ -658,14 +662,15 @@
 						<label class="modal__label" for="account-other">Other</label>
 					</fieldset>
 					<fieldset class="modal__block">
-						<label class="modal__label" for="password" >Password<span>&nbsp;*</span></label><br>
-						<input class="modal__input required" id="password" type="password" name="password" minlength="5" maxlength="20">
+						<label class="modal__label" for="password">Password<span>&nbsp;*</span></label><br>
+						<input class="modal__input required" id="password" type="password" name="password" minlength="5"
+							maxlength="20">
 						<a href="#" id="pass-up-show" class="password-control" aria-label="show/hide password"></a>
 					</fieldset>
 					<input id="agree" type="checkbox" name="agree">
 					<label class="modal__label" for="agree">Send me email notifications for new program launches,
 						website or store updates (optional)</label><br>
-						<span>* required fields</span>
+					<span>* required fields</span>
 					<button id="submitModalBtn" class="modal__btn btn" type="submit" disabled>Create Account</button>
 				</form>
 				<div class="modal__image">
@@ -685,8 +690,8 @@
 						<a href="mailto:docklands-gym@gmail.com">docklands-gym@gmail.com</a>
 					</div>
 					<ul class="footer__social">
-						<li><a href="https://www.facebook.com/" target="_blank" aria-label="link to facebook"><svg class="item__img" width="20"
-									height="20">
+						<li><a href="https://www.facebook.com/" target="_blank" aria-label="link to facebook"><svg
+									class="item__img" width="20" height="20">
 									<use href="images/social/symbol-defs.svg#icon-facebook"></use>
 								</svg>
 							</a></li>
