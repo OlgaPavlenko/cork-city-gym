@@ -977,16 +977,16 @@ main {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  row-gap: 30px;
-  column-gap: 30px;
+  row-gap: 35px;
+  column-gap: 40px;
 }
 
 .content__item {
   position: relative;
   display: flex;
   justify-content: center;
-  width: 18.75rem;
-  min-height: 24rem;
+  width: 19rem;
+  height: 25rem;
   border: 1px solid var(--main-color);
   border-radius: 5px;
   overflow: hidden;
@@ -994,6 +994,7 @@ main {
 
 .item__preview {
   width: 100%;
+  height: 100%;
   object-fit: cover;
 }
 
@@ -1215,9 +1216,17 @@ input::placeholder {
 
   @media only screen and (min-width: 350px) and (max-width: 767.98px) {
     flex-direction: column;
-    align-items: center;
+    align-items: space-between;
     row-gap: 2rem;
   }
+}
+.team__title {
+  padding-left: 6px;
+}
+
+.team__overview {
+  margin-bottom: 35px;
+  padding-left: 6px;
 }
 
 .team__item {
@@ -1319,7 +1328,7 @@ input::placeholder {
   text-align: center;
   min-width: 34rem;
   @media only screen and (max-width: 767.98px) {
-    min-width: 18rem;
+    min-width: 20rem;
   }
 }
 
@@ -1339,28 +1348,43 @@ input::placeholder {
   min-height: 15rem;
   border: 1px solid var(--main-color);
   border-radius: 5px;
+  @media only screen and (max-width: 767.98px) {
+    row-gap: 45px;
+  }
+}
+.weight__value,
+.height__value {
+  min-width: 90px;
 }
 
 .calculator__weight,
 .calculator__height {
+  position: relative;
   display: flex;
   justify-content: center;
+  padding: 0 10px;
 }
 
 .calculator__label {
   margin-right: 10px;
-  padding-left: -20px;
+  font-size: 1.1rem;
+  @media only screen and (max-width: 767.98px) {
+    position: absolute;
+    top: -35px;
+    left: 10%;
+  }
 }
 
 .value {
   width: 30%;
   border: 1px solid var(--main-color);
   border-radius: 5px;
-  margin-right: 10px;
+  margin-right: 15px;
 }
 
 .value::placeholder {
   color: #000;
+  padding-left: 5px;
 }
 
 .calculator__sel {
