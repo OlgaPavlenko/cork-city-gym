@@ -16,7 +16,7 @@
 html,
 body {
   min-width: 360px;
-	scroll-behavior: smooth;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -331,32 +331,32 @@ main {
 .navbar-submenu {
   position: relative;
   cursor: pointer;
-	&:hover {
-		>span {
-			color: var(--main-color);
-		}
-	}
+  &:hover {
+    > span {
+      color: var(--main-color);
+    }
+  }
   @media only screen and (max-width: 991.98px) {
     font-size: 1.5rem;
     font-weight: 700;
   }
 }
 @media (hover: hover) {
-	.navbar__link:hover {
-		color: var(--main-color);
-	}
-	.navbar__link:hover::after {
-		width: 100%;
-	}
+  .navbar__link:hover {
+    color: var(--main-color);
+  }
+  .navbar__link:hover::after {
+    width: 100%;
+  }
 }
 @media only screen and (min-width: 991.98px) {
-	.navbar-submenu:hover {
-		>.navbar-submenu__list {
-			opacity: 1;
-			visibility: visible;
-			transform: translateY(0);
-		}
-	}
+  .navbar-submenu:hover {
+    > .navbar-submenu__list {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+  }
 }
 
 .navbar-submenu__list {
@@ -499,19 +499,19 @@ main {
   }
 }
 .hero__image {
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	& img {
-		position: absolute;
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 100%;
-		object-fit: contain ;
-	}
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  & img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
 }
 
 .hero__content {
@@ -1313,8 +1313,6 @@ input::placeholder {
 /*==============calculator=====================*/
 .calculator {
   display: flex;
-  align-items: center;
-  justify-content: space-around;
 }
 
 .calculator__form {
@@ -1326,19 +1324,18 @@ input::placeholder {
 }
 
 .calculator__form h3 {
-  margin-bottom: 15px;
+  margin-bottom: 10px;
 }
 
 .calculator__wrap {
+  padding: 15px;
   margin-bottom: 15px;
   display: flex;
   flex-direction: column;
-  row-gap: 15px;
-
   justify-content: center;
-  width: 100%;
   align-items: center;
-
+  row-gap: 15px;
+  width: 100%;
   min-height: 15rem;
   border: 1px solid var(--main-color);
   border-radius: 5px;
@@ -1347,14 +1344,19 @@ input::placeholder {
 .calculator__weight,
 .calculator__height {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
+}
+
+.calculator__label {
+  margin-right: 10px;
+  padding-left: -20px;
 }
 
 .value {
   width: 30%;
   border: 1px solid var(--main-color);
   border-radius: 5px;
-  padding-left: 7px;
+  margin-right: 10px;
 }
 
 .value::placeholder {
@@ -1364,7 +1366,6 @@ input::placeholder {
 .calculator__sel {
   border: 1px solid var(--main-color);
   border-radius: 5px;
-  width: 30%;
 }
 
 .calculator__button {
@@ -1516,9 +1517,9 @@ input::placeholder {
 .modal__form {
   flex: 0 0 50%;
   font-size: 1rem;
-	& span {
+  & span {
     color: var(--main-color);
-	}
+  }
 }
 .modal__input {
   width: 100%;
@@ -1529,32 +1530,35 @@ input::placeholder {
     border: 1px solid var(--main-color);
   }
 }
-.modal__label>span {
-	color: var(--main-color);
+.modal__label > span {
+  color: var(--main-color);
 }
 #account-age {
-	width: 100px;
+  width: 100px;
 }
 #age {
-	margin-right: 50px;
+  margin-right: 50px;
 }
 #gender {
-	& .modal__label {
-		margin-right: 20px;
-	}
+  & .modal__label {
+    margin-right: 20px;
+  }
 }
 
-input#agree, input.gender {
+input#agree,
+input.gender {
   position: absolute;
   z-index: -1;
   opacity: 0;
 }
-input#agree + label,  input.gender + label {
+input#agree + label,
+input.gender + label {
   display: inline-flex;
   align-items: center;
   user-select: none;
 }
-input#agree + label::before, input.gender + label::before {
+input#agree + label::before,
+input.gender + label::before {
   content: "";
   display: inline-block;
   flex-shrink: 0;
@@ -1565,21 +1569,22 @@ input#agree + label::before, input.gender + label::before {
   background-repeat: no-repeat;
   background-position: center center;
   background-size: 70% 70%;
-	transition: 0.5s;
+  transition: 0.5s;
 }
 input#agree + label::before {
-	width: 1.2em;
+  width: 1.2em;
   height: 1.2em;
 }
 input.gender + label::before {
-	width: 0.8em;
+  width: 0.8em;
   height: 0.8em;
-
 }
-input#agree:hover + label::before, input.gender:hover + label::before {
-	background-color: #000;
+input#agree:hover + label::before,
+input.gender:hover + label::before {
+  background-color: #000;
 }
-input#agree:checked + label::before, input.gender:checked + label::before {
+input#agree:checked + label::before,
+input.gender:checked + label::before {
   background-color: #000;
   background-image: url(../images/check.svg);
 }

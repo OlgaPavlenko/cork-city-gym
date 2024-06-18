@@ -32,26 +32,26 @@ for (let form of forms) {
     }
   });
   //===========tracking changes in the form fields=========
-	const buttonSubmit = form.querySelector("[type='submit']");
+  const buttonSubmit = form.querySelector("[type='submit']");
 
   form.addEventListener("input", (e) => {
     const form = e.target.closest("form");
     formObserver(form, e.target, buttonSubmit);
   });
 
-	form.addEventListener("submit", (e) => {
-		const body = Object.fromEntries(new FormData(e.target).entries());
-		e.preventDefault();
-		buttonSubmit.setAttribute("disabled", "true");
+  form.addEventListener("submit", (e) => {
+    const body = Object.fromEntries(new FormData(e.target).entries());
+    e.preventDefault();
+    buttonSubmit.setAttribute("disabled", "true");
 
-		if (form.id == "form") {
-			alert( `Hi ${body.name}. Thank you for the message`)
-		}
-		if (form.id == "modal-form") {
-			closePopup();
-			alert( "Your data has been sent successfully")
-		}
-	});
+    if (form.id == "form") {
+      alert(`Hi ${body.name}. Thank you for the message`);
+    }
+    if (form.id == "modal-form") {
+      closePopup();
+      alert("Your data has been sent successfully");
+    }
+  });
 }
 //============= validation form ========================
 
@@ -89,9 +89,9 @@ function formObserver(form, target, button) {
   }
   if (!error) {
     button.removeAttribute("disabled");
-  }else{
-		button.setAttribute("disabled","true")
-	}
+  } else {
+    button.setAttribute("disabled", "true");
+  }
 }
 // check input field values and show error messages
 function inputValidation(validator, input, message) {
@@ -122,17 +122,15 @@ function emailValidation(input) {
   return /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,8})+$/.test(input.value);
 }
 function phoneValidation(input) {
-  return /(\s*)?(\+)?([- _():=+]?\d[- _():=+]?){12,14}(\s*)?/.test(
-    input.value
-  );
+  return /(\s*)?(\+)?([- _():=+]?\d[- _():=+]?){12,14}(\s*)?/.test(input.value);
 }
-function checkAge(e){
-  if(e.value != ""){
-    if(parseInt(e.value) < parseInt(e.min)){
+function checkAge(e) {
+  if (e.value != "") {
+    if (parseInt(e.value) < parseInt(e.min)) {
       e.value = e.min;
     }
   }
-}// ======================init swiper=================
+} // ======================init swiper=================
 const swiperThumb = new Swiper(".classes__slider-thumbs", {
   // Optional parameters
   direction: "vertical",
@@ -195,34 +193,72 @@ const swiperMain = new Swiper(".classes__slider", {
 // ======================calculator=====================
 
 const calculatorForm = document.getElementById("calculator");
+const inputWeight = document.querySelector(".weight__value");
+const inputHeight = document.querySelector(".height__value");
+const weightParamElement = document.querySelector(".weight");
+const heightParamElement = document.querySelector(".height");
 const submitButton = document.getElementById("submitButton");
 const resetButton = document.getElementById("resetButton");
 const result = document.getElementById("result");
 
-const switchToSubmit = () => {
-  submitButton.style.display = "block";
-  resetButton.style.display = "none";
-  result.innerText = " ";
-};
-
-const switchToReset = () => {
+const onSubmitButton = () => {
+  result.innerText = `Your Body Mass Index is ${bmi}. This is considered as ${weightResult}`;
   submitButton.style.display = "none";
   resetButton.style.display = "block";
+  weightParamElement.value = weightParam;
+  heightParamElement.value = heightParam;
 };
 
-calculatorForm.addEventListener("submit", (e) => {
-  e.preventDefault();
-  const data = Object.fromEntries(new FormData(e.target).entries());
-  let bmi = 0;
-  let weight = 0;
-  let height = 0;
+const onResetButton = () => {
+  submitButton.style.display = "block";
+  resetButton.style.display = "none";
+  weight = 0;
+  height = 0;
+  inputWeight.value = null;
+  inputHeight.value = null;
+  weightParamElement.value = weightParam;
+  heightParamElement.value = heightParam;
+  result.innerText = "";
+};
 
-  data.weightOption === "lbs"
-    ? (weight = data.weight * 0.453592)
-    : (weight = data.weight);
-  data.heightOption === "in"
-    ? (height = (data.height * 2.54) / 100)
-    : (height = data.height / 100);
+let bmi = 0;
+let weight = 0;
+let height = 0;
+let weightParam = "kg";
+let heightParam = "cm";
+let weightResult = "";
+
+inputWeight.addEventListener("input", onInputWeightChange);
+
+inputHeight.addEventListener("input", onInputHeightChange);
+
+weightParamElement.addEventListener("change", weightParamChange);
+
+heightParamElement.addEventListener("change", heightParamChange);
+
+function onInputWeightChange(event) {
+  weight = event.currentTarget.value;
+}
+
+function onInputHeightChange(event) {
+  height = event.currentTarget.value;
+}
+
+function weightParamChange(event) {
+  weightParam = event.currentTarget.value;
+}
+
+function heightParamChange(event) {
+  heightParam = event.currentTarget.value;
+}
+
+calculatorForm.addEventListener("submit", (event) => {
+  event.preventDefault();
+
+  weightParam === "lbs" ? (weight = weight * 0.453592) : (weight = weight);
+  heightParam === "in"
+    ? (height = (height * 2.54) / 100)
+    : (height = height / 100);
 
   if (height <= 0) {
     result.innerText = "Please, enter valid numbers!";
@@ -231,33 +267,31 @@ calculatorForm.addEventListener("submit", (e) => {
     result.innerText = "Please, enter valid numbers!";
     return;
   }
+
   bmi = Math.round((weight / Math.pow(height, 2)) * 10) / 10;
 
   if (bmi <= 18.4) {
-    switchToReset();
-    result.innerText = `Your Body Mass Index is ${bmi}. This is considered as underweight`;
+    weightResult = "underweight";
   } else if (bmi >= 18.5 && bmi <= 24.9) {
-    switchToReset();
-    result.innerText = `Your Body Mass Index is ${bmi}. This is considered as normal`;
+    weightResult = "normal";
   } else if (bmi >= 25 && bmi <= 30) {
-    switchToReset();
-    result.innerText = `Your Body Mass Index is ${bmi}. This is considered as overweight`;
+    weightResult = "overweight";
   } else if (bmi >= 30.1) {
-    switchToReset();
-    result.innerText = `Your Body Mass Index is ${bmi}. This is considered as obese`;
+    weightResult = "obese";
   }
+
+  onSubmitButton();
 });
 // =======popup======================================
 const modal = document.querySelector(".modal");
 function openPopup() {
   modal.classList.add("open");
   document.body.classList.add("modal-lock");
-	if(modal.classList.contains('open')) {
-		document.addEventListener('keyup',  keyHandler);
-	}else{
-		document.removeEventListener('keyup',  keyHandler);
-	}
-
+  if (modal.classList.contains("open")) {
+    document.addEventListener("keyup", keyHandler);
+  } else {
+    document.removeEventListener("keyup", keyHandler);
+  }
 }
 function closePopup() {
   const form = document.getElementById("modal-form");
@@ -293,8 +327,8 @@ function showPassword(e) {
 }
 
 function keyHandler(e) {
-	if (e.key == 'Escape') {
-		closePopup()
-		document.removeEventListener('keyup',  keyHandler);
-	}
+  if (e.key == "Escape") {
+    closePopup();
+    document.removeEventListener("keyup", keyHandler);
+  }
 }
