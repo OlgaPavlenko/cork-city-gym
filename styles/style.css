@@ -30,6 +30,7 @@ body {
 body.lock {
   overflow: hidden;
 }
+
 body.modal-lock {
   overflow: hidden;
 }
@@ -71,9 +72,11 @@ button {
   border: none;
   outline: none;
 }
+
 button:disabled {
   pointer-events: none;
 }
+
 textarea {
   resize: none;
 }
@@ -109,6 +112,7 @@ address {
 main {
   position: relative;
 }
+
 .container {
   max-width: 1340px;
   padding: 0 15px;
@@ -331,24 +335,29 @@ main {
 .navbar-submenu {
   position: relative;
   cursor: pointer;
+
   &:hover {
     > span {
       color: var(--main-color);
     }
   }
+
   @media only screen and (max-width: 991.98px) {
     font-size: 1.5rem;
     font-weight: 700;
   }
 }
+
 @media (hover: hover) {
   .navbar__link:hover {
     color: var(--main-color);
   }
+
   .navbar__link:hover::after {
     width: 100%;
   }
 }
+
 @media only screen and (min-width: 991.98px) {
   .navbar-submenu:hover {
     > .navbar-submenu__list {
@@ -366,6 +375,7 @@ main {
   flex-direction: column;
   gap: 20px;
   transition: 0.5s;
+
   @media only screen and (min-width: 991.98px) {
     position: absolute;
     top: 30px;
@@ -379,9 +389,11 @@ main {
     gap: 10px;
   }
 }
+
 .navbar-submenu__link {
   font-size: 0.85em;
 }
+
 /* ============icon menu ================= */
 .icon-menu {
   display: none;
@@ -479,6 +491,7 @@ main {
 
 .hero__inner {
   position: relative;
+
   &::after {
     content: "";
     position: absolute;
@@ -498,12 +511,14 @@ main {
     margin: 0 -15px;
   }
 }
+
 .hero__image {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
+
   & img {
     position: absolute;
     top: 0;
@@ -519,6 +534,7 @@ main {
   z-index: 2;
   padding: 20px 0;
   max-width: 60%;
+
   @media only screen and (max-width: 767.98px) {
     padding: 15px;
     max-width: 100%;
@@ -960,11 +976,12 @@ main {
   font-size: 1rem;
   position: absolute;
   bottom: 10px;
-  margin-left: 18px;
+  margin-left: 22px;
 
   @media only screen and (min-width: 767px) {
     font-size: 1.188rem;
     bottom: 15px;
+    margin-left: 26px;
   }
 }
 
@@ -976,16 +993,23 @@ main {
 .facilities__content {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-between;
   row-gap: 35px;
-  column-gap: 40px;
+  @media only screen and (max-width: 767px) {
+    justify-content: center;
+  }
+
+  @media only screen and (max-width: 1280px) {
+    justify-content: center;
+    column-gap: 30px;
+  }
 }
 
 .content__item {
   position: relative;
   display: flex;
   justify-content: center;
-  width: 19rem;
+  width: 25rem;
   height: 25rem;
   border: 1px solid var(--main-color);
   border-radius: 5px;
@@ -1085,6 +1109,7 @@ main {
   flex: 1 1 50%;
   padding: 0 15px;
   position: relative;
+
   & fieldset {
     height: 120px;
   }
@@ -1327,6 +1352,7 @@ input::placeholder {
 .calculator__form {
   text-align: center;
   min-width: 34rem;
+
   @media only screen and (max-width: 767.98px) {
     min-width: 20rem;
   }
@@ -1503,6 +1529,7 @@ input::placeholder {
   padding-top: 30px;
   text-transform: capitalize;
 }
+
 /* ============popup======================= */
 .modal {
   padding: 30px 150px;
@@ -1516,53 +1543,67 @@ input::placeholder {
   transition: 0.5s ease-in-out;
   transform: scale(0);
   overflow: scroll;
+
   @media only screen and (max-width: 991.98px) {
     padding: 20px 80px;
   }
+
   @media only screen and (max-width: 767.98px) {
     padding: 50px 20px 20px;
     display: block;
   }
 }
+
 .modal.open {
   transform: scale(1);
 }
+
 .modal__title {
   font-size: clamp(1.5rem, 4vw, 4rem);
 }
+
 .modal__content {
   display: flex;
   gap: 30px;
   justify-content: space-between;
+
   @media only screen and (max-width: 767.98px) {
     display: block;
   }
 }
+
 .modal__form {
   flex: 0 0 50%;
   font-size: 1rem;
+
   & span {
     color: var(--main-color);
   }
 }
+
 .modal__input {
   width: 100%;
   border-radius: 5px;
   padding: 3px 10px;
   line-height: 1.5;
+
   &:focus-visible {
     border: 1px solid var(--main-color);
   }
 }
+
 .modal__label > span {
   color: var(--main-color);
 }
+
 #account-age {
   width: 100px;
 }
+
 #age {
   margin-right: 50px;
 }
+
 #gender {
   & .modal__label {
     margin-right: 20px;
@@ -1575,12 +1616,14 @@ input.gender {
   z-index: -1;
   opacity: 0;
 }
+
 input#agree + label,
 input.gender + label {
   display: inline-flex;
   align-items: center;
   user-select: none;
 }
+
 input#agree + label::before,
 input.gender + label::before {
   content: "";
@@ -1595,33 +1638,40 @@ input.gender + label::before {
   background-size: 70% 70%;
   transition: 0.5s;
 }
+
 input#agree + label::before {
   width: 1.2em;
   height: 1.2em;
 }
+
 input.gender + label::before {
   width: 0.8em;
   height: 0.8em;
 }
+
 input#agree:hover + label::before,
 input.gender:hover + label::before {
   background-color: #000;
 }
+
 input#agree:checked + label::before,
 input.gender:checked + label::before {
   background-color: #000;
   background-image: url(../images/check.svg);
 }
+
 .modal__btn {
   width: 100%;
   margin-top: 20px;
 }
+
 .modal__image {
   flex: 0 0 50%;
   overflow: hidden;
   position: relative;
   aspect-ratio: 1/0.8;
   border-radius: 20px;
+
   & img {
     position: absolute;
     width: 100%;
@@ -1630,14 +1680,17 @@ input.gender:checked + label::before {
     left: 0;
     object-fit: cover;
   }
+
   @media only screen and (max-width: 767.98px) {
     display: none;
   }
 }
+
 .modal__block {
   position: relative;
   height: 80px;
 }
+
 .modal__close {
   position: absolute;
   top: 20px;
@@ -1645,6 +1698,7 @@ input.gender:checked + label::before {
   width: 30px;
   height: 30px;
 }
+
 .password-control {
   position: absolute;
   right: 15px;
@@ -1653,6 +1707,7 @@ input.gender:checked + label::before {
   height: 14px;
   transform: translateY(-50%);
   background: url(../images/show.svg) center / cover no-repeat;
+
   &.view-pass {
     background: url(../images/hide.svg) 0 0 no-repeat;
   }
