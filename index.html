@@ -502,8 +502,8 @@
 					<div class="calculator__wrap">
 						<div class="calculator__weight">
 							<label class="calculator__label" for="weight">Enter your weight</label>
-							<input type="number" class="weight__value value" id="weight" name="weight" max="500"
-								placeholder="0">
+							<input type="number" class="weight__value value" id="weight" name="weight" min="0"
+								oninput="this.value = Math.max(this.value, 0)" max="500" placeholder="0">
 							<select class="calculator__sel weight" name="weightOption">
 								<option value="kg" id="kg">kg</option>
 								<option value="lbs" id="lbs">lbs</option>
@@ -511,8 +511,8 @@
 						</div>
 						<div class="calculator__height">
 							<label class="calculator__label" for="height">Enter your height</label>
-							<input type="number" class="height__value value" id="height" name="height" max="300"
-								placeholder="0">
+							<input type="number" class="height__value value" id="height" name="height" min="0"
+								oninput="this.value = Math.max(this.value, 0)" max="300" placeholder="0">
 							<select class="calculator__sel height" name="heightOption">
 								<option value="cm" id="cm">cm</option>
 								<option value="in" id="in">in</option>
