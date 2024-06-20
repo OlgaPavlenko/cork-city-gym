@@ -42,17 +42,19 @@ for (let form of forms) {
   form.addEventListener("submit", (e) => {
     const body = Object.fromEntries(new FormData(e.target).entries());
     e.preventDefault();
-		fetch('https://api.exemple.com', {
-			method: 'POST',
-			body: body
-	}).then((response) => {
-			// successful request
-			console.log(response)
-	}).catch((error) => {
-			// failed request
-			console.log(error)
-	});
-		form.reset();
+    fetch("https://api.exemple.com", {
+      method: "POST",
+      body: body,
+    })
+      .then((response) => {
+        // successful request
+        console.log(response);
+      })
+      .catch((error) => {
+        // failed request
+        console.log(error);
+      });
+    form.reset();
 
     buttonSubmit.setAttribute("disabled", "true");
 
@@ -273,10 +275,10 @@ calculatorForm.addEventListener("submit", (event) => {
     : (height = height / 100);
 
   if (height <= 0) {
-    result.innerText = "Please, enter valid numbers!";
+    result.innerText = "";
     return;
   } else if (weight <= 0) {
-    result.innerText = "Please, enter valid numbers!";
+    result.innerText = "";
     return;
   }
 
