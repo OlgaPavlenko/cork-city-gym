@@ -42,6 +42,18 @@ for (let form of forms) {
   form.addEventListener("submit", (e) => {
     const body = Object.fromEntries(new FormData(e.target).entries());
     e.preventDefault();
+		fetch('https://api.exemple.com', {
+			method: 'POST',
+			body: body
+	}).then((response) => {
+			// successful request
+			console.log(response)
+	}).catch((error) => {
+			// failed request
+			console.log(error)
+	});
+		form.reset();
+
     buttonSubmit.setAttribute("disabled", "true");
 
     if (form.id == "form") {
